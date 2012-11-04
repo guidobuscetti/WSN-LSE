@@ -1,0 +1,206 @@
+#include "movil.h"
+
+
+void rutina_movil (void)
+
+{
+	// Verificaiones y declaraciones
+	frameData data;				// Data que leo
+	nodo_fijo_t nodo_vec[20];	// Defino nodos fijos
+	uint8_t i,cant_nodos=0;		// Cantidad de nodos fijos
+	float32_t posicion[2];			// Posicion del nodo movil
+
+	while(1)
+	{
+		data = ccFrameRx();		// Leo data del receptor
+
+		// Busco nodo que envio mensaje
+
+		i=0;
+		listo=0;
+
+		while(i<=cant_nodos && !listo)
+		{
+			// Si se encuentra, se guarda el RSSI
+			if (data.src.shortAddr == nodo_vec[i].numero)
+			{
+				nodo_vec[i].rssi[nodo_vec[i].last_rssi] = data.rssi;
+				nodo_vec[i].last_rssi++;
+				if (nodo_vec[i].last_rssi == MAX_RSSI) nodo_vec[i].last_rssi=0;
+				listo=1;
+			}
+			i++;
+		}
+
+		// Si no encontro el nodo, defino uno nuevo
+		if (!listo)
+		{
+			nodo_vec[cant_nodos].numero = data.src.shortAddr;		// Guardo numero
+			nodo_vec[cant_nodos].posicion[0] = (float32_t)data.payload[0];	// Guardo posicion X
+			nodo_vec[cant_nodos].posicion[1] = (float32_t)data.payload[1];	// Guardo posicion Y
+			nodo_vec[cant_nodos].last_rssi = 0;						// Inicio last_rssi
+			nodo_vec[cant_nodos].rssi[last_rssi] = data.rssi;		// Guardo rssi
+			last_rssi++;
+			for(j=0;j<MAX_RSSI;j++) nodo_vec[cant_nodos].rssi[j] = 0;	// Inicilizo rssi en 0
+			cant_nodos++;											// Aumento cantidad de nodos
+		}
+
+		// Calculo las distancias a cada nodo
+
+		for(i=0;i<=cant_nodos;i++)
+		{
+			nodo_vec[i].dist = (float32_t) RSSI_to_dist_2(nodo_vec[i].rssi,RSSI_MAX);	// Calculo distancia
+			nodo_vec[i].prom_rssi = (float32_t) promediar(nodo_vec[i].rssi,RSSI_MAX);	// Calculo promedio rssi
+		}
+
+		// Pregunto si hago trilateración
+
+		// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
+
+		if (cant_nodos >= 3)
+		{
+			trilateracion(nodo_vec,cant_nodos,posicion);
+		}
+
+		// Mando la posicion
+
+		enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
+
+	}
+
+}
+
+
+void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, double * posicion)
+{
+
+	uint8_t i,i1,i2,i3;
+
+	float32_t Adata[2*2];
+	float32_t Atdata[2*2];
+	float32_t bdata[2*1];
+	float32_t distref[2];
+
+	arm_status s;
+
+	// Seleccion de nodos para trilaterar
+	i1=0;
+	i2=0;
+	i3=0;
+
+	// Busco los tres nodos con mejor RSSI.
+
+	for(i=0;i<cant_nodos;i++)
+	{
+		if (nodo_vec[i].prom_rssi>nodo_vec[i3].prom_rssi)
+			if (nodo_vec[i].prom_rssi>nodo_vec[i2].prom_rssi)
+			{
+				if (nodo_vec[i].prom_rssi>nodo_vec[i1].prom_rssi)
+				{
+					i3=i2;
+					i2=i1;
+					i1=i;
+				}
+				else
+				{
+					i3=i2;
+					i2=i;
+				}
+			}
+			else
+			{
+				i3=i;
+			}
+	}
+
+
+	// ALGORITMO DE TRILATERACION
+
+	// Trilatero con i1,i2,i3
+
+	// Calculo las distancias entre nodos
+	distref[0] = dist2d(nodo_vec[i2].posicion,nodo_vec[i1].posicion);
+	distref[1] = dist2d(nodo_vec[i3].posicion,nodo_vec[i1].posicion);
+
+	// Creo la Matriz A
+	Adata[0] = nodo_vec[i2].posicion[0] - nodo_vec[i1].posicion[0];
+	Adata[1] = nodo_vec[i2].posicion[1] - nodo_vec[i1].posicion[1];
+	Adata[2] = nodo_vec[i3].posicion[0] - nodo_vec[i1].posicion[0];
+	Adata[3] = nodo_vec[i3].posicion[1] - nodo_vec[i1].posicion[1];
+
+	// Creo el vector b
+	bdata[0] = (nodo_vec[i1].dist*nodo_vec[i1].dist - nodo_vec[i2].dist*nodo_vec[i2].dist + distref[0]*distref[0])/2;
+	bdata[1] = (nodo_vec[i1].dist*nodo_vec[i1].dist - nodo_vec[i3].dist*nodo_vec[i3].dist + distref[1]*distref[1])/2;
+
+	arm_matrix_instance_f32 matA = {2,2,Adata};
+	arm_matrix_instance_f32 matAt = {2,2,Atdata};
+	arm_matrix_instance_f32 matB = {2,1,bdata};
+
+	// Calculo A transpuesta
+	s = arm_mat_trans_f32(&matA,&matAt);
+
+	// Matriz Auxiliar 1
+	float32_t aux1data[3*3];
+	arm_matrix_instance_f32 mataux1 =  {3,3,aux1data};
+
+	// Aux 1 = At*A
+	s = arm_mat_mult_f32(&matAt,&matA,&mataux1);
+
+	// Invierto la matriz auxiliar
+	float32_t auxinvdata[3*3];
+	arm_matrix_instance_f32 matauxinv =  {3,3,auxinvdata};
+
+	s = arm_mat_inverse_f32(&mataux1,&matauxinv);
+
+	// Matriz auxiliar 2
+	float32_t aux2data[3*3];
+	arm_matrix_instance_f32 mataux2 =  {3,3,aux1data};
+
+	// Aux 2 = AuxInv * At
+	s = arm_mat_mult_f32(&matauxinv,&matAt,&mataux2);
+
+	// Aux1 = Aux2 * b
+	s = arm_mat_mult_f32(&mataux2,&matb,&mataux1);
+
+	// Lo guardo en posicion
+	posicion[0] = aux1data[0] + nodo_vec[i1].posicion[0];
+	posicion[1] = aux1data[1] + nodo_vec[i1].posicion[1];
+
+}
+
+
+void enviar_posicion (uint8_t * payload,uint8_t size,uint16_t dst_address)
+{
+
+	frameData d;
+
+	d.dst.shortAddr.panid = PANID;
+	d.src.shortAddr.panid = PANID;
+	d.dst.shortAddr.addr = dst_address;
+	d.src.shortAddr.addr = ADDR_LOCAL;
+
+	d.fcf = ccWrapperFCF(MAC_FRAME_TYPE_DATA, 0, 0, 1, 0,
+					MAC_ADDR_MODE_SHORT, 0, MAC_ADDR_MODE_SHORT);
+
+	memcpy(d.payload, payload, size);
+	d.pl_length = size;
+
+	ccFrameTx(d);
+
+}
+
+float32_t dist2d (float32_t * r1, float32_t * r2)
+{
+	float32_t x = r1[0] - r2[0];
+	float32_t y = r1[1] - r2[1];
+
+	x *= x;
+	y *= y;
+
+	x += y;
+
+	arm_sqrte_f32(x,&x);
+
+	return x;
+
+}
