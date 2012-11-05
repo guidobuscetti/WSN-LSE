@@ -77,6 +77,6 @@ u16 ccWrapperFCF(u8 frameType, u8 securityEnabled, u8 framePending, u8 ackReques
 s8 ccFrameTx(frameData d);
 frameData ccFrameRx(void);
 
-void memcpy(void * dst, void * src, int n);
+void memorycpy(void * dst, void * src, int n);
 
 #endif /* CC2520_MAC_H_ */

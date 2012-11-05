@@ -7,7 +7,7 @@
 
 #include "includes.h"
 
-void memcpy(void * dst, void * src, int n)
+void memorycpy(void * dst, void * src, int n)
 {
 	int i;
 	for(i=0; i<n; i++)
@@ -105,7 +105,7 @@ s8 ccFrameTx(frameData d)
 		return -1;
 
 	//armo la trama
-	memcpy(txbuf+1, &d.fcf, 2);
+	memorycpy(txbuf+1, &d.fcf, 2);
 	txbuf[3] = d.seqn;
 
 	i=4;
@@ -116,13 +116,13 @@ s8 ccFrameTx(frameData d)
 		case MAC_ADDR_MODE_1_RESERVED:
 			return -2;
 		case MAC_ADDR_MODE_SHORT:
-			memcpy(txbuf+i, &(d.dst.shortAddr.panid), 2);
-			memcpy(txbuf+i+2, &(d.dst.shortAddr.addr), 2);
+			memorycpy(txbuf+i, &(d.dst.shortAddr.panid), 2);
+			memorycpy(txbuf+i+2, &(d.dst.shortAddr.addr), 2);
 			i+=4;
 			break;
 		case MAC_ADDR_MODE_EXTENDED:
-			memcpy(txbuf+i, &(d.dst.extAddr.panid), 2);
-			memcpy(txbuf+i+2, &(d.dst.extAddr.addr), 8);
+			memorycpy(txbuf+i, &(d.dst.extAddr.panid), 2);
+			memorycpy(txbuf+i+2, &(d.dst.extAddr.addr), 8);
 			i+=10;
 			break;
 	}
@@ -135,26 +135,26 @@ s8 ccFrameTx(frameData d)
 		case MAC_ADDR_MODE_SHORT:
 			if(d.fcf & PAN_ID_COMPRESSION_FLAG)
 			{
-				memcpy(txbuf+i, &(d.src.shortAddr.addr), 2);
+				memorycpy(txbuf+i, &(d.src.shortAddr.addr), 2);
 				i+=2;
 			}
 			else
 			{
-				memcpy(txbuf+i, &(d.src.shortAddr.panid), 2);
-				memcpy(txbuf+i+2, &(d.src.shortAddr.addr), 2);
+				memorycpy(txbuf+i, &(d.src.shortAddr.panid), 2);
+				memorycpy(txbuf+i+2, &(d.src.shortAddr.addr), 2);
 				i+=4;
 			}
 			break;
 		case MAC_ADDR_MODE_EXTENDED:
 			if(d.fcf & PAN_ID_COMPRESSION_FLAG)
 			{
-				memcpy(txbuf+i, &(d.src.extAddr.addr), 8);
+				memorycpy(txbuf+i, &(d.src.extAddr.addr), 8);
 				i+=8;
 			}
 			else
 			{
-				memcpy(txbuf+i, &(d.src.extAddr.panid), 2);
-				memcpy(txbuf+i+2, &(d.src.extAddr.addr), 8);
+				memorycpy(txbuf+i, &(d.src.extAddr.panid), 2);
+				memorycpy(txbuf+i+2, &(d.src.extAddr.addr), 8);
 				i+=10;
 			}
 			break;
@@ -165,7 +165,7 @@ s8 ccFrameTx(frameData d)
 	//si el payload no entra, error
 	if((i+d.pl_length+1) > 127) return -4;
 
-	memcpy(txbuf+i, d.payload, d.pl_length);
+	memorycpy(txbuf+i, d.payload, d.pl_length);
 
 	txbuf[0] = i+d.pl_length+1;
 
@@ -236,8 +236,8 @@ frameData ccFrameRx(void)
 	ccCmd(RXBUF, 0, rxcont, rxbuf);
 	ccCmd(SFLUSHRX, 0, 0, 0);
 
-	memcpy(&(d.fcf), rxbuf+1, 2);
-	memcpy(&(d.seqn), rxbuf+3, 1);
+	memorycpy(&(d.fcf), rxbuf+1, 2);
+	memorycpy(&(d.seqn), rxbuf+3, 1);
 
 	i=4;
 	switch(macFCFGetDestAddrMode(d.fcf))
@@ -247,13 +247,13 @@ frameData ccFrameRx(void)
 		case MAC_ADDR_MODE_NO_PAN_ADDR:
 			break;
 		case MAC_ADDR_MODE_SHORT:
-			memcpy(&(d.dst.shortAddr.panid), rxbuf+i, 2);
-			memcpy(&(d.dst.shortAddr.addr), rxbuf+i+2, 2);
+			memorycpy(&(d.dst.shortAddr.panid), rxbuf+i, 2);
+			memorycpy(&(d.dst.shortAddr.addr), rxbuf+i+2, 2);
 			i+=4;
 			break;
 		case MAC_ADDR_MODE_EXTENDED:
-			memcpy(&(d.dst.extAddr.panid), rxbuf+i, 2);
-			memcpy(&(d.dst.extAddr.addr), rxbuf+i+2, 8);
+			memorycpy(&(d.dst.extAddr.panid), rxbuf+i, 2);
+			memorycpy(&(d.dst.extAddr.addr), rxbuf+i+2, 8);
 			i+=10;
 			break;
 	}
@@ -266,26 +266,26 @@ frameData ccFrameRx(void)
 		case MAC_ADDR_MODE_SHORT:
 			if(d.fcf & PAN_ID_COMPRESSION_FLAG)
 			{
-				memcpy(&(d.src.shortAddr.addr), rxbuf+i, 2);
+				memorycpy(&(d.src.shortAddr.addr), rxbuf+i, 2);
 				i+=2;
 			}
 			else
 			{
-				memcpy(&(d.src.shortAddr.panid), rxbuf+i, 2);
-				memcpy(&(d.src.shortAddr.addr), rxbuf+i+2, 2);
+				memorycpy(&(d.src.shortAddr.panid), rxbuf+i, 2);
+				memorycpy(&(d.src.shortAddr.addr), rxbuf+i+2, 2);
 				i+=4;
 			}
 			break;
 		case MAC_ADDR_MODE_EXTENDED:
 			if(d.fcf & PAN_ID_COMPRESSION_FLAG)
 			{
-				memcpy(&(d.src.extAddr.addr), rxbuf+i, 8);
+				memorycpy(&(d.src.extAddr.addr), rxbuf+i, 8);
 				i+=8;
 			}
 			else
 			{
-				memcpy(&(d.src.extAddr.panid),rxbuf+i, 2);
-				memcpy(&(d.src.extAddr.addr), rxbuf+i+2, 8);
+				memorycpy(&(d.src.extAddr.panid),rxbuf+i, 2);
+				memorycpy(&(d.src.extAddr.addr), rxbuf+i+2, 8);
 				i+=10;
 			}
 			break;
@@ -296,7 +296,7 @@ frameData ccFrameRx(void)
 
 	/*aca iria el aux security header (no implementado aun...)*/
 
-	memcpy(d.payload, rxbuf+i, rxcont-i-2);
+	memorycpy(d.payload, rxbuf+i, rxcont-i-2);
 	d.pl_length = rxcont-i-2;
 
 	return d;

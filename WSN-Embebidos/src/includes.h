@@ -17,11 +17,9 @@
 
 // COMO USO EL 1769 INCLUYO SUS LIBRERIAS
 
-//#include "config.h"
 #include "lpc17xx_ssp.h"
 #include "lpc17xx_pinsel.h"
 #include "lpc17xx_gpio.h"
-
 
 #define LED_PORT	0
 #define LED_BIT		(1<<22)
@@ -36,10 +34,19 @@ typedef int64_t s64;
 typedef uint64_t u64;
 typedef char ascii;
 
+
+
+
 void pausems(int t);
+
+//#include "math.h"
+#include "arm_math.h"
 
 #include "cc2520.h"
 #include "cc2520-mac.h"
+#include "rssi.h"
+//#include "movil.h"
+
 
 
 #endif /* INCLUDES_H_ */

@@ -3,12 +3,12 @@
  * (C) Code Red Technologies Ltd, 2008-2012
  * Generated linker script file for LPC1769
  * Created from generic_c.ld (vLPCXpresso v4.2 (3 [Build 255] [30/05/2012] ))
- * By LPCXpresso v4.2.3 [Build 255] [30/05/2012]  on Wed Oct 31 17:11:06 ART 2012
+ * By LPCXpresso v4.2.3 [Build 255] [30/05/2012]  on Mon Nov 05 18:47:47 ART 2012
  */
 
 
-INCLUDE "cc2520em-lpc1769_Debug_lib.ld"
-INCLUDE "cc2520em-lpc1769_Debug_mem.ld"
+INCLUDE "WSN-Embebidos_Debug_lib.ld"
+INCLUDE "WSN-Embebidos_Debug_mem.ld"
 
 ENTRY(ResetISR)
 
@@ -43,14 +43,6 @@ SECTIONS
 		
 
 		*(.after_vectors*)
-		
-		/* Code Read Protect data */
-		. = 0x000002FC ;
-		PROVIDE(__CRP_WORD_START__ = .) ;
-		KEEP(*(.crp))
-		PROVIDE(__CRP_WORD_END__ = .) ;
-		ASSERT(!(__CRP_WORD_START__ == __CRP_WORD_END__), "Linker CRP Enabled, but no CRP_WORD provided within application");
-		/* End of Code Read Protect */
 		
 		*(.text*)
 		*(.rodata .rodata.*)

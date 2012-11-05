@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>cc2520em-lpc1769</name>
+	<name>WSN-Embebidos</name>
 	<comment></comment>
 	<projects>
 		<project>CMSISv2p00_LPC17xx</project>
+		<project>CMSISv2p10_DSPLIB_CM3</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -32,7 +33,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/cc2520em-lpc1769/Debug}</value>
+					<value>${workspace_loc:/WSN-Embebidos/Debug}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>

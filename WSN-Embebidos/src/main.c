@@ -1,20 +1,5 @@
+#include "config.h"
 #include "includes.h"
-
-__CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
-
-#define RECEPTOR	1
-
-#define PANID	1
-
-#define ADDR_ENCUEST		1
-
-#if(RECEPTOR)
-	#define ADDR_LOCAL		2
-	#define ADDR_REMOTO		1
-#else
-	#define ADDR_LOCAL		1
-	#define ADDR_REMOTO		2
-#endif
 
 int ledcont, pausecont;
 

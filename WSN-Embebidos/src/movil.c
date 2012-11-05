@@ -1,6 +1,5 @@
 #include "movil.h"
 
-
 void rutina_movil (void)
 
 {
@@ -9,6 +8,7 @@ void rutina_movil (void)
 	nodo_fijo_t nodo_vec[20];	// Defino nodos fijos
 	uint8_t i,cant_nodos=0;		// Cantidad de nodos fijos
 	float32_t posicion[2];			// Posicion del nodo movil
+	uint8_t j,listo;
 
 	while(1)
 	{
@@ -22,11 +22,11 @@ void rutina_movil (void)
 		while(i<=cant_nodos && !listo)
 		{
 			// Si se encuentra, se guarda el RSSI
-			if (data.src.shortAddr == nodo_vec[i].numero)
+			if (data.src.shortAddr.addr == nodo_vec[i].numero)
 			{
 				nodo_vec[i].rssi[nodo_vec[i].last_rssi] = data.rssi;
 				nodo_vec[i].last_rssi++;
-				if (nodo_vec[i].last_rssi == MAX_RSSI) nodo_vec[i].last_rssi=0;
+				if (nodo_vec[i].last_rssi == RSSI_MAX) nodo_vec[i].last_rssi=0;
 				listo=1;
 			}
 			i++;
@@ -35,14 +35,14 @@ void rutina_movil (void)
 		// Si no encontro el nodo, defino uno nuevo
 		if (!listo)
 		{
-			nodo_vec[cant_nodos].numero = data.src.shortAddr;		// Guardo numero
+			nodo_vec[cant_nodos].numero = (data.src).shortAddr.addr;				// Guardo numero
 			nodo_vec[cant_nodos].posicion[0] = (float32_t)data.payload[0];	// Guardo posicion X
 			nodo_vec[cant_nodos].posicion[1] = (float32_t)data.payload[1];	// Guardo posicion Y
-			nodo_vec[cant_nodos].last_rssi = 0;						// Inicio last_rssi
-			nodo_vec[cant_nodos].rssi[last_rssi] = data.rssi;		// Guardo rssi
-			last_rssi++;
-			for(j=0;j<MAX_RSSI;j++) nodo_vec[cant_nodos].rssi[j] = 0;	// Inicilizo rssi en 0
-			cant_nodos++;											// Aumento cantidad de nodos
+			nodo_vec[cant_nodos].last_rssi = 0;								// Inicio last_rssi
+			nodo_vec[cant_nodos].rssi[nodo_vec[cant_nodos].last_rssi] = data.rssi;		// Guardo rssi
+			nodo_vec[cant_nodos].last_rssi++;
+			for(j=0;j<RSSI_MAX;j++) nodo_vec[cant_nodos].rssi[j] = 0;		// Inicilizo rssi en 0
+			cant_nodos++;													// Aumento cantidad de nodos
 		}
 
 		// Calculo las distancias a cada nodo
@@ -71,7 +71,7 @@ void rutina_movil (void)
 }
 
 
-void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, double * posicion)
+void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, float32_t * posicion)
 {
 
 	uint8_t i,i1,i2,i3;
@@ -93,7 +93,7 @@ void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, double * posicio
 	for(i=0;i<cant_nodos;i++)
 	{
 		if (nodo_vec[i].prom_rssi>nodo_vec[i3].prom_rssi)
-			if (nodo_vec[i].prom_rssi>nodo_vec[i2].prom_rssi)
+		{	if (nodo_vec[i].prom_rssi>nodo_vec[i2].prom_rssi)
 			{
 				if (nodo_vec[i].prom_rssi>nodo_vec[i1].prom_rssi)
 				{
@@ -111,6 +111,7 @@ void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, double * posicio
 			{
 				i3=i;
 			}
+		}
 	}
 
 
@@ -154,13 +155,13 @@ void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, double * posicio
 
 	// Matriz auxiliar 2
 	float32_t aux2data[3*3];
-	arm_matrix_instance_f32 mataux2 =  {3,3,aux1data};
+	arm_matrix_instance_f32 mataux2 =  {3,3,aux2data};
 
 	// Aux 2 = AuxInv * At
 	s = arm_mat_mult_f32(&matauxinv,&matAt,&mataux2);
 
 	// Aux1 = Aux2 * b
-	s = arm_mat_mult_f32(&mataux2,&matb,&mataux1);
+	s = arm_mat_mult_f32(&mataux2,&matB,&mataux1);
 
 	// Lo guardo en posicion
 	posicion[0] = aux1data[0] + nodo_vec[i1].posicion[0];
@@ -199,7 +200,7 @@ float32_t dist2d (float32_t * r1, float32_t * r2)
 
 	x += y;
 
-	arm_sqrte_f32(x,&x);
+	arm_sqrt_f32(x,&x);
 
 	return x;
 

@@ -8,11 +8,10 @@
 #include "rssi.h"
 
 //	Pasar RSSI a distancia usando metodo probabilistico
-double RSSI_to_dist_1 (s8 * RSSI_vec , uint8_t size)
+float64_t RSSI_to_dist_1 (int8_t * RSSI_vec , uint8_t size)
 {
 	float32_t suma[cols_tabla];
 	uint8_t i,dist,rssi_index;
-	s8 aux;
 
 	// Inicializo el vector suma
 	for(i=0;i<cols_tabla;i++)
@@ -22,7 +21,7 @@ double RSSI_to_dist_1 (s8 * RSSI_vec , uint8_t size)
 	for(i=0;i<size;i++)
 	{
 
-		rssi_index = (uint8_t) ((s8)rssi_max - RSSI_vec[i]);
+		rssi_index = (uint8_t) ((int8_t)rssi_max - RSSI_vec[i]);
 
 		// Sumo las probabilidades para ese RSSI
 		if (rssi_index>=0 && rssi_index<filas_tabla)
@@ -35,21 +34,21 @@ double RSSI_to_dist_1 (s8 * RSSI_vec , uint8_t size)
 	dist = buscar_max(suma,dist_max);
 	dist++;
 
-	return (double)dist;
+	return (float64_t)dist;
 
 }
 
 // Pasar RSSI a distancia ajustando la curva
-double RSSI_to_dist_2 (s8 * RSSI_vec, uint8_t size)
+float64_t RSSI_to_dist_2 (int8_t * RSSI_vec, uint8_t size)
 {
-	double dist,prom,exponente;
+	float64_t dist,prom,exponente;
 
 	// Hago un promedio de todos los RSSI
 	prom = promediar (RSSI_vec,size);
 
 	// Ajusto con la curva
 	exponente = -(prom+AJUSTE_A)/(10*AJUSTE_N);
-	dist = pow((double)10,exponente);
+	dist = pow((float64_t)10,exponente);
 
 	return dist;
 
@@ -80,14 +79,14 @@ uint8_t buscar_max (float32_t * vec, uint8_t size)
 	return index;
 }
 
-double promediar (s8 * vec, uint8_t size)
+float64_t promediar (int8_t * vec, uint8_t size)
 {
-	double prom=0.0;
+	float64_t prom=0.0;
 	uint8_t i;
 
 	for(i=0;i<size;i++)
 	{
-		prom += (double)vec[i]/size;
+		prom += (float64_t)vec[i]/size;
 	}
 
 	return prom;
@@ -111,7 +110,7 @@ void calc_tabla (float32_t * tabla)
 			expon = (i+1 - tabla_ajuste_u[j])/tabla_ajuste_s[j];
 			expon = -0.5*expon*expon;
 			mod =(float32_t) sqrt(2*pi)*tabla_ajuste_s[j];
-			tabla[j*cols_tabla+i] = (float32_t) (exp((double)expon)/mod);
+			tabla[j*cols_tabla+i] = (float32_t) (exp((float64_t)expon)/mod);
 		}
 
 	}

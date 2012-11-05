@@ -4,16 +4,19 @@
  *  Created on: 03/11/2012
  *      Author: joaquin
  */
-#include "includes.h"
-#include "arm_math.h"
-#include "math.h"
 
-#define MAX_RSSI	20
+//#include "arm_math.h"
+//#include "math.h"
+#include "config.h"
+#include "includes.h"
+
+
+#define RSSI_MAX	20
 
 struct{
 		uint8_t numero;
 		float32_t	posicion[2];
-		s8		rssi[MAX_RSSI];
+		int8_t	rssi[RSSI_MAX];
 		uint8_t	last_rssi;
 		float32_t prom_rssi;
 		float32_t dist;
