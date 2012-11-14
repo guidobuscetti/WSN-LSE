@@ -8,6 +8,8 @@
 #ifndef CC2520_MAC_H_
 #define CC2520_MAC_H_
 
+#include "includes.h"
+
 typedef enum
 {
 	MAC_FRAME_TYPE_BEACON=0,

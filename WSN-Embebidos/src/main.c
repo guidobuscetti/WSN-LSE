@@ -1,8 +1,8 @@
-#include "config.h"
 #include "includes.h"
 
-int ledcont, pausecont;
 
+int ledcont, pausecont;
+/*
 void SysTick_Handler(void)
 {
 	if(ledcont)
@@ -14,12 +14,13 @@ void SysTick_Handler(void)
 	if(pausecont) pausecont--;
 }
 
+*/
 void pausems(int t)
 {
 	pausecont = t;
 	while(pausecont);
 }
-
+/*
 void ledFlash(int t)
 {
 	GPIO_SetValue(LED_PORT, LED_BIT);
@@ -41,12 +42,12 @@ int main(void)
 
 	GPIO_SetDir(LED_PORT, LED_BIT, 1);
 	GPIO_ClearValue(LED_PORT, LED_BIT);
-
 	if(ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0)<0)
 	{
 		GPIO_SetValue(LED_PORT, LED_BIT);
 		while(1);
 	}
+
 
 
 
@@ -91,14 +92,13 @@ int main(void)
 	return 0;
 }
 
+*/
+
 // MAIN PARA NODO MOVIL:
 
-#ifdef NODOMOVIL
+#ifdef MOVIL
 
-#define PANID	1
-#define ADDR_LOCAL 10
-
-void main (void)
+int main (void)
 {
 	// Seteo el LED
 	GPIO_SetDir(LED_PORT, LED_BIT, 1);
@@ -124,8 +124,30 @@ void main (void)
 }
 #endif
 
+#ifdef FIJO
+// Main para nodo FIJO
+int main (void)
+{
+	// Seteo el LED
+	GPIO_SetDir(LED_PORT, LED_BIT, 1);
+	GPIO_ClearValue(LED_PORT, LED_BIT);
 
+	// Inicializo direcciones del tranceiver
+	if(ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0)<0)
+	{
+		// Si no se inicializa correctamente se cuelga
+		GPIO_SetValue(LED_PORT, LED_BIT);
+		while(1);
+	}
+	// Inicio la tarea del nodo fijo
+	rutina_fijo();
 
+	// En teoria nunca debe llegar a esta instancia
+	for(;;);
+}
+#endif
+
+/*
 void mainTRUCHO (void)
 {
 	double dist,dist1;
@@ -136,3 +158,5 @@ void mainTRUCHO (void)
 	dist1 = RSSI_to_dist_2(RSSI_vec,20);
 	while(1);
 }
+
+*/

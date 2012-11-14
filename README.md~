@@ -1,12 +1,16 @@
 WSN-LSE
 =======
-<<<<<<< HEAD
+
+Version 0.2:
+- Agregado fijo.h y fijo.c
+- Arreglados problemas con includes
+- Modificado main.c: mains para nodos fijos y moviles
+- Agregado config.h : configuraciones de la red
+
 Version 0.1:
 - Arreglados errores de compilacion
 - Cambiado el nombre del proyecto
 
-=======
->>>>>>> a234b4df581b929bb6701bc7ab0d197f3e2ba4ec
 Version 0:
 - Agregada CMSIS 2p00 LPC17XX
 - Agregada DSPLIB CM3 2v10
@@ -15,7 +19,4 @@ Version 0:
       - Agregado stack de Pablo : cc2520.h, cc2520.c, cc2520-mac.h, cc2520-mac.c, includes.h
       - Agregado movil.c y movil.h : Rutina y trilateracion de nodo movil
       - Agregado rssi.c y rssi.h : algoritmos de conversion de RSSI (dBm) a distancia (m)
-<<<<<<< HEAD
 
-=======
->>>>>>> a234b4df581b929bb6701bc7ab0d197f3e2ba4ec

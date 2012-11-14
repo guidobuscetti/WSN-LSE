@@ -15,12 +15,10 @@
 #include <cr_section_macros.h>
 #include <NXP/crp.h>
 
-// COMO USO EL 1769 INCLUYO SUS LIBRERIAS
+// Incluyo configuracion de la RED
+#include "config.h"
 
-#include "lpc17xx_ssp.h"
-#include "lpc17xx_pinsel.h"
-#include "lpc17xx_gpio.h"
-
+// Incluyo defines (de hardware y software)
 #define LED_PORT	0
 #define LED_BIT		(1<<22)
 
@@ -34,19 +32,24 @@ typedef int64_t s64;
 typedef uint64_t u64;
 typedef char ascii;
 
+// Incluyo drivers del micro
+#include "lpc17xx_ssp.h"
+#include "lpc17xx_pinsel.h"
+#include "lpc17xx_gpio.h"
 
-
-
-void pausems(int t);
-
-//#include "math.h"
+// Incluyo definiciones matematicas
+#include "math.h"
 #include "arm_math.h"
 
+// Incluyo headers de funciones
 #include "cc2520.h"
 #include "cc2520-mac.h"
 #include "rssi.h"
-//#include "movil.h"
 
+#include "movil.h"
+#include "fijo.h"
 
+void pausems(int t);
 
 #endif /* INCLUDES_H_ */
+

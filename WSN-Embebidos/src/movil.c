@@ -1,7 +1,6 @@
 #include "movil.h"
 
 void rutina_movil (void)
-
 {
 	// Verificaiones y declaraciones
 	frameData data;				// Data que leo
@@ -183,8 +182,13 @@ void enviar_posicion (uint8_t * payload,uint8_t size,uint16_t dst_address)
 	d.fcf = ccWrapperFCF(MAC_FRAME_TYPE_DATA, 0, 0, 1, 0,
 					MAC_ADDR_MODE_SHORT, 0, MAC_ADDR_MODE_SHORT);
 
-	memcpy(d.payload, payload, size);
-	d.pl_length = size;
+	// Mando el numero de secuencia
+	d.payload[0] = sec_num;
+	// Incremento el numero de secuencia
+	sec_num++;
+
+	memcpy((d.payload)+1, payload, size);
+	d.pl_length = size+1;
 
 	ccFrameTx(d);
 

@@ -7,6 +7,7 @@ C_SRCS += \
 ../src/cc2520-mac.c \
 ../src/cc2520.c \
 ../src/cr_startup_lpc176x.c \
+../src/fijo.c \
 ../src/main.c \
 ../src/movil.c \
 ../src/rssi.c 
@@ -15,6 +16,7 @@ OBJS += \
 ./src/cc2520-mac.o \
 ./src/cc2520.o \
 ./src/cr_startup_lpc176x.o \
+./src/fijo.o \
 ./src/main.o \
 ./src/movil.o \
 ./src/rssi.o 
@@ -23,6 +25,7 @@ C_DEPS += \
 ./src/cc2520-mac.d \
 ./src/cc2520.d \
 ./src/cr_startup_lpc176x.d \
+./src/fijo.d \
 ./src/main.d \
 ./src/movil.d \
 ./src/rssi.d 

@@ -5,11 +5,14 @@
  *      Author: joaquin
  */
 
-//#include "arm_math.h"
-//#include "math.h"
-#include "config.h"
-#include "includes.h"
+#ifndef MOVIL_H_
+#define MOVIL_H_
 
+
+#include "includes.h"
+//#include "cc2520-mac.h"
+//#include "arm_math.h"
+//#include "config.h"
 
 #define RSSI_MAX	20
 
@@ -22,7 +25,11 @@ struct{
 		float32_t dist;
 		} typedef nodo_fijo_t;
 
+uint8_t sec_num;
+
 void rutina_movil (void);
 void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, float32_t * posicion);
 void enviar_posicion (uint8_t * payload,uint8_t size,uint16_t dst_address);
 float32_t dist2d (float32_t * r1, float32_t * r2);
+
+#endif

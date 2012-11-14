@@ -1,6 +1,12 @@
 WSN-LSE
 =======
 
+Version 0.2:
+- Agregado fijo.h y fijo.c
+- Arreglados problemas con includes
+- Modificado main.c: mains para nodos fijos y moviles
+- Agregado config.h : configuraciones de direcciones de red
+
 Version 0.1:
 - Arreglados errores de compilacion
 - Cambiado el nombre del proyecto
