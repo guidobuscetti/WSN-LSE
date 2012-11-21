@@ -2,7 +2,7 @@
 
 
 int ledcont, pausecont;
-/*
+
 void SysTick_Handler(void)
 {
 	if(ledcont)
@@ -14,19 +14,19 @@ void SysTick_Handler(void)
 	if(pausecont) pausecont--;
 }
 
-*/
+
 void pausems(int t)
 {
 	pausecont = t;
 	while(pausecont);
 }
-/*
+
 void ledFlash(int t)
 {
 	GPIO_SetValue(LED_PORT, LED_BIT);
 	ledcont = t;
 }
-
+/*
 int main(void)
 {
 	frameData d;
@@ -100,20 +100,23 @@ int main(void)
 
 int main (void)
 {
+	int8_t init = -1;
+	SysTick_Config(SystemCoreClock/1000);
+
 	// Seteo el LED
 	GPIO_SetDir(LED_PORT, LED_BIT, 1);
 	GPIO_ClearValue(LED_PORT, LED_BIT);
 
 	// Inicializo direcciones del tranceiver
-	if(ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0)<0)
+	GPIO_SetValue(LED_PORT, LED_BIT);
+	while(init<0)
 	{
-		// Si no se inicializa correctamente se cuelga
-		GPIO_SetValue(LED_PORT, LED_BIT);
-		while(1);
+		init = ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0);
 	}
+	GPIO_ClearValue(LED_PORT, LED_BIT);
 
 	// Calculo la tabla para el ajuste probabilistico
-	calc_tabla(tabla);
+//	calc_tabla(tabla);
 
 	// Inicio la tarea del nodo movil
 
@@ -128,17 +131,24 @@ int main (void)
 // Main para nodo FIJO
 int main (void)
 {
+	int8_t init=-1;
+
+	SysTick_Config(SystemCoreClock/1000);
+
 	// Seteo el LED
 	GPIO_SetDir(LED_PORT, LED_BIT, 1);
 	GPIO_ClearValue(LED_PORT, LED_BIT);
 
+	GPIO_SetValue(LED_PORT, LED_BIT);
 	// Inicializo direcciones del tranceiver
-	if(ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0)<0)
+	while(init<0)
 	{
-		// Si no se inicializa correctamente se cuelga
-		GPIO_SetValue(LED_PORT, LED_BIT);
-		while(1);
+		init = ccInit(PANID, ADDR_LOCAL, ADDR_LOCAL, 0);
 	}
+	GPIO_ClearValue(LED_PORT, LED_BIT);
+
+
+
 	// Inicio la tarea del nodo fijo
 	rutina_fijo();
 

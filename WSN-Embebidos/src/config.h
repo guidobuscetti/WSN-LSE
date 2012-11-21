@@ -12,11 +12,12 @@
 #define PANID	1
 #define ADDR_ENCUEST		1
 
-#define ADDR_LOCAL			2
+#define ADDR_LOCAL			10
+
+#define POS_X	2			// Posicion X de nodo fijo
+#define POS_Y	0			// Posicion Y de nodo fijo
 
 #if (ADDR_LOCAL<=8)
-	#define POS_X	0			// Posicion X de nodo fijo
-	#define POS_Y	2			// Posicion Y de nodo fijo
 	#define FIJO
 #elif (ADDR_LOCAL >=10)
 	#define MOVIL

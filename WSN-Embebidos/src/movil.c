@@ -7,64 +7,71 @@ void rutina_movil (void)
 	nodo_fijo_t nodo_vec[20];	// Defino nodos fijos
 	uint8_t i,cant_nodos=0;		// Cantidad de nodos fijos
 	float32_t posicion[2];			// Posicion del nodo movil
-	uint8_t j,listo;
+	uint8_t j,listo,k;
 
 	while(1)
 	{
 		data = ccFrameRx();		// Leo data del receptor
 
-		// Busco nodo que envio mensaje
-
-		i=0;
-		listo=0;
-
-		while(i<=cant_nodos && !listo)
+		// Verifico que sean datos utiles
+		if(macFCFGetFrameType(data.fcf)==MAC_FRAME_TYPE_DATA)
 		{
-			// Si se encuentra, se guarda el RSSI
-			if (data.src.shortAddr.addr == nodo_vec[i].numero)
+			// Busco nodo que envio mensaje
+
+			i=0;
+			listo=0;
+
+			while(i<=cant_nodos && !listo)
 			{
-				nodo_vec[i].rssi[nodo_vec[i].last_rssi] = data.rssi;
-				nodo_vec[i].last_rssi++;
-				if (nodo_vec[i].last_rssi == RSSI_MAX) nodo_vec[i].last_rssi=0;
-				listo=1;
+				// Si se encuentra, se guarda el RSSI
+				if (data.src.shortAddr.addr == nodo_vec[i].numero)
+				{
+					k = i; // Guardo el numero del nodo
+					nodo_vec[i].rssi[nodo_vec[i].last_rssi] = data.rssi;
+					nodo_vec[i].last_rssi++;
+					if (nodo_vec[i].last_rssi == RSSI_MAX) nodo_vec[i].last_rssi=0;
+					listo=1;
+				}
+				i++;
 			}
-			i++;
+
+			// Si no encontro el nodo, defino uno nuevo
+			if (!listo)
+			{
+				nodo_vec[cant_nodos].numero = (data.src).shortAddr.addr;				// Guardo numero
+				nodo_vec[cant_nodos].posicion[0] = (float32_t)data.payload[0];	// Guardo posicion X
+				nodo_vec[cant_nodos].posicion[1] = (float32_t)data.payload[1];	// Guardo posicion Y
+				nodo_vec[cant_nodos].last_rssi = 0;								// Inicio last_rssi
+				nodo_vec[cant_nodos].rssi[nodo_vec[cant_nodos].last_rssi] = data.rssi;		// Guardo rssi
+				nodo_vec[cant_nodos].last_rssi++;
+				for(j=0;j<RSSI_MAX;j++) nodo_vec[cant_nodos].rssi[j] = 0;		// Inicilizo rssi en 0
+				k = cant_nodos; // Guardo el numero de nodo
+				cant_nodos++;													// Aumento cantidad de nodos
+			}
+
+			// Calculo las distancias a cada nodo
+
+			nodo_vec[k].dist = (float32_t) RSSI_to_dist_2(nodo_vec[k].rssi,RSSI_MAX);	// Calculo distancia
+			nodo_vec[k].prom_rssi = (float32_t) promediar(nodo_vec[k].rssi,RSSI_MAX);	// Calculo promedio rssi
+
+			// Imprimo un mensaje :
+			printf("Cant de nodos:%d Mensaje recibido de %d:(%d,%d)\n",cant_nodos,data.src.shortAddr.addr,data.payload[0],data.payload[1]);
+
+			// Pregunto si hago trilateración
+
+			// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
+
+			if (cant_nodos >= 3)
+			{
+				trilateracion(nodo_vec,cant_nodos,posicion);
+				printf("Trilateracion X=%.2f Y=%.2f\n",posicion[0],posicion[1]);
+			}
+
+			// Mando la posicion
+
+
+			//enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
 		}
-
-		// Si no encontro el nodo, defino uno nuevo
-		if (!listo)
-		{
-			nodo_vec[cant_nodos].numero = (data.src).shortAddr.addr;				// Guardo numero
-			nodo_vec[cant_nodos].posicion[0] = (float32_t)data.payload[0];	// Guardo posicion X
-			nodo_vec[cant_nodos].posicion[1] = (float32_t)data.payload[1];	// Guardo posicion Y
-			nodo_vec[cant_nodos].last_rssi = 0;								// Inicio last_rssi
-			nodo_vec[cant_nodos].rssi[nodo_vec[cant_nodos].last_rssi] = data.rssi;		// Guardo rssi
-			nodo_vec[cant_nodos].last_rssi++;
-			for(j=0;j<RSSI_MAX;j++) nodo_vec[cant_nodos].rssi[j] = 0;		// Inicilizo rssi en 0
-			cant_nodos++;													// Aumento cantidad de nodos
-		}
-
-		// Calculo las distancias a cada nodo
-
-		for(i=0;i<=cant_nodos;i++)
-		{
-			nodo_vec[i].dist = (float32_t) RSSI_to_dist_2(nodo_vec[i].rssi,RSSI_MAX);	// Calculo distancia
-			nodo_vec[i].prom_rssi = (float32_t) promediar(nodo_vec[i].rssi,RSSI_MAX);	// Calculo promedio rssi
-		}
-
-		// Pregunto si hago trilateración
-
-		// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
-
-		if (cant_nodos >= 3)
-		{
-			trilateracion(nodo_vec,cant_nodos,posicion);
-		}
-
-		// Mando la posicion
-
-		enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
-
 	}
 
 }

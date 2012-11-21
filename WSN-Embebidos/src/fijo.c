@@ -30,10 +30,23 @@ void rutina_fijo (void)
 	MAC_ADDR_MODE_SHORT, 0, MAC_ADDR_MODE_SHORT);
 
 	// Comienzo rutina infinita
+
 	while(1)
 	{
+#if (ADDR_LOCAL == 2)
+		// Simulo como que leo algo del nodo anterior (nodo encuestador)
+		pausems(10000);
+		d_rx.fcf = MAC_FRAME_TYPE_DATA;
+		d_rx.dst.shortAddr.panid = PANID;
+		d_rx.dst.shortAddr.addr = ADDR_LOCAL;
+		d_rx.payload[0] = (uint8_t)0;
+		d_rx.pl_length = 1;
+		d_rx.src.shortAddr.panid = PANID;
+		d_rx.src.shortAddr.addr = ADDR_LOCAL-1;
+#else
 		// Leo el tranceiver
 		d_rx = ccFrameRx();
+#endif
 
 		// Veo si es mensaje util
 		if(macFCFGetFrameType(d_rx.fcf)==MAC_FRAME_TYPE_DATA)
@@ -48,7 +61,15 @@ void rutina_fijo (void)
 				d_tx.payload[0] = POS_X; 	// Mando posicion X
 				d_tx.payload[1] = POS_Y;	// Mando posicion Y
 				d_tx.pl_length = 2;
+
+				// Espero un ratito
+				pausems(500);
+
+				// Envio posicion
 				ccFrameTx(d_tx);
+
+				// Prendo LED de envio
+				ledFlash(20);
 			}
 			else if (d_rx.src.shortAddr.addr == ADDR_LOCAL +1 )
 			{
