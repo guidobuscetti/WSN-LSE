@@ -1,5 +1,10 @@
 WSN-LSE
 =======
+Version 0.4:
+- Corregido config.h
+- Corregido main.c 
+- Corregido fijo.c
+- Corregido movil.c
 
 Version 0.2:
 - Agregado fijo.h y fijo.c
