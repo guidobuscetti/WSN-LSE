@@ -38,14 +38,14 @@ void rutina_movil (void)
 			// Si no encontro el nodo, defino uno nuevo
 			if (!listo)
 			{
-				nodo_vec[cant_nodos].numero = (data.src).shortAddr.addr;				// Guardo numero
+				nodo_vec[cant_nodos].numero = (data.src).shortAddr.addr;		// Guardo numero
 				nodo_vec[cant_nodos].posicion[0] = (float32_t)data.payload[0];	// Guardo posicion X
 				nodo_vec[cant_nodos].posicion[1] = (float32_t)data.payload[1];	// Guardo posicion Y
 				nodo_vec[cant_nodos].last_rssi = 0;								// Inicio last_rssi
 				nodo_vec[cant_nodos].rssi[nodo_vec[cant_nodos].last_rssi] = data.rssi;		// Guardo rssi
 				nodo_vec[cant_nodos].last_rssi++;
 				for(j=0;j<RSSI_MAX;j++) nodo_vec[cant_nodos].rssi[j] = 0;		// Inicilizo rssi en 0
-				k = cant_nodos; // Guardo el numero de nodo
+				k = cant_nodos; 												// Guardo el numero de nodo
 				cant_nodos++;													// Aumento cantidad de nodos
 			}
 
@@ -54,9 +54,6 @@ void rutina_movil (void)
 			nodo_vec[k].dist = (float32_t) RSSI_to_dist_2(nodo_vec[k].rssi,RSSI_MAX);	// Calculo distancia
 			nodo_vec[k].prom_rssi = (float32_t) promediar(nodo_vec[k].rssi,RSSI_MAX);	// Calculo promedio rssi
 
-			// Imprimo un mensaje :
-			printf("Cant de nodos:%d Mensaje recibido de %d:(%d,%d)\n",cant_nodos,data.src.shortAddr.addr,data.payload[0],data.payload[1]);
-
 			// Pregunto si hago trilateración
 
 			// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
@@ -64,13 +61,11 @@ void rutina_movil (void)
 			if (cant_nodos >= 3)
 			{
 				trilateracion(nodo_vec,cant_nodos,posicion);
-				printf("Trilateracion X=%.2f Y=%.2f\n",posicion[0],posicion[1]);
 			}
 
 			// Mando la posicion
 
-
-			//enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
+			enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
 		}
 	}
 

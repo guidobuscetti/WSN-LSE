@@ -62,7 +62,7 @@ void rutina_fijo (void)
 				d_tx.payload[1] = POS_Y;	// Mando posicion Y
 				d_tx.pl_length = 2;
 
-				// Espero un ratito
+				// Espero un pequeño delay antes de enviar
 				pausems(500);
 
 				// Envio posicion
@@ -89,6 +89,9 @@ void rutina_fijo (void)
 						d_tx.dst.shortAddr.addr = ADDR_LOCAL -1;
 						ccFrameTx(d_tx);
 
+						// Prendo LED de envio
+						ledFlash(20);
+
 						// Registro el envio
 						reg_nodos[addr_aux - 10] = d_rx.payload[2];
 					}
@@ -110,6 +113,9 @@ void rutina_fijo (void)
 				// Reenvio
 				d_tx.dst.shortAddr.addr = ADDR_LOCAL -1;
 				ccFrameTx(d_tx);
+
+				// Prendo LED de envio
+				ledFlash(20);
 
 				// Registro el envio
 				reg_nodos[d_rx.src.shortAddr.addr - 10] = d_rx.payload[0];
