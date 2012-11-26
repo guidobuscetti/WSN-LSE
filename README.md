@@ -1,5 +1,8 @@
 WSN-LSE
 =======
+Version 0.5:
+- Actualizados valores de ajuste para RSSI
+
 Version 0.4:
 - Corregido config.h
 - Corregido main.c 
