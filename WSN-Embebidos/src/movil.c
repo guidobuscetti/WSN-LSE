@@ -21,6 +21,11 @@ void rutina_movil (void)
 			i=0;
 			listo=0;
 
+			// Si el RSSI es malo lo descarto
+			if(data.rssi != 0)
+			{
+				//printf("%d\n",data.rssi);
+
 			while(i<=cant_nodos && !listo)
 			{
 				// Si se encuentra, se guarda el RSSI
@@ -49,23 +54,33 @@ void rutina_movil (void)
 				cant_nodos++;													// Aumento cantidad de nodos
 			}
 
-			// Calculo las distancias a cada nodo
+			// Calculo las distancias a cada nodo (si recibo de 3)
 
-			nodo_vec[k].dist = (float32_t) RSSI_to_dist_2(nodo_vec[k].rssi,RSSI_MAX);	// Calculo distancia
-			nodo_vec[k].prom_rssi = (float32_t) promediar(nodo_vec[k].rssi,RSSI_MAX);	// Calculo promedio rssi
-
+			//if (k==2)
+			{
+				i=0;
+				//for(i=0;i<cant_nodos;i++)
+				{
+					nodo_vec[i].dist = (float32_t) RSSI_to_dist_1(nodo_vec[i].rssi,RSSI_MAX);	// Calculo distancia
+					printf("Distancia a nodo %d : %.2fm. Ultimo RSSI:%d\n",i+1,nodo_vec[i].dist,nodo_vec[i].rssi[nodo_vec[i].last_rssi-1]);
+				}
+				//nodo_vec[k].prom_rssi = (float32_t) promediar(nodo_vec[k].rssi,RSSI_MAX);	// Calculo promedio rssi
+			}
 			// Pregunto si hago trilateración
 
 			// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
-
-			if (cant_nodos >= 3)
+			/*
+			if (cant_nodos >= 3 && k==2)
 			{
 				trilateracion(nodo_vec,cant_nodos,posicion);
+				printf("Posicion (%.2f,%.2f)\n",posicion[0],posicion[1]);
 			}
-
+			*/
 			// Mando la posicion
 
-			enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
+			//enviar_posicion((uint8_t*)posicion,sizeof(float32_t)*2,ADDR_ENCUEST);
+
+			}
 		}
 	}
 

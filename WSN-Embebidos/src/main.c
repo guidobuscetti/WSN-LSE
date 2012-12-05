@@ -49,7 +49,7 @@ int main (void)
 	GPIO_ClearValue(LED_PORT, LED_BIT);
 
 	// Calculo la tabla para el ajuste probabilistico
-//	calc_tabla(tabla);
+	calc_tabla(tabla);
 
 	// Inicio la tarea del nodo movil
 

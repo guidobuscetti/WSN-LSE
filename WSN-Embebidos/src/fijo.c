@@ -35,7 +35,7 @@ void rutina_fijo (void)
 	{
 #if (ADDR_LOCAL == 2)
 		// Simulo como que leo algo del nodo anterior (nodo encuestador)
-		pausems(10000);
+		pausems(2000);
 		d_rx.fcf = MAC_FRAME_TYPE_DATA;
 		d_rx.dst.shortAddr.panid = PANID;
 		d_rx.dst.shortAddr.addr = ADDR_LOCAL;
@@ -57,13 +57,13 @@ void rutina_fijo (void)
 			{
 				// Si es mensaje, envio posicion del nodo a todos
 
-				d_tx.dst.shortAddr.addr = 0xFFFF;
+				d_tx.dst.shortAddr.addr = 10;
 				d_tx.payload[0] = POS_X; 	// Mando posicion X
 				d_tx.payload[1] = POS_Y;	// Mando posicion Y
 				d_tx.pl_length = 2;
 
 				// Espero un pequeño delay antes de enviar
-				pausems(500);
+				pausems(10);
 
 				// Envio posicion
 				ccFrameTx(d_tx);
