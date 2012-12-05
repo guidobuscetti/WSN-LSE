@@ -35,7 +35,7 @@ void rutina_fijo (void)
 	{
 #if (ADDR_LOCAL == 2)
 		// Simulo como que leo algo del nodo anterior (nodo encuestador)
-		pausems(2000);
+		pausems(5000);
 		d_rx.fcf = MAC_FRAME_TYPE_DATA;
 		d_rx.dst.shortAddr.panid = PANID;
 		d_rx.dst.shortAddr.addr = ADDR_LOCAL;

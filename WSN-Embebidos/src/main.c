@@ -51,8 +51,10 @@ int main (void)
 	// Calculo la tabla para el ajuste probabilistico
 	calc_tabla(tabla);
 
-	// Inicio la tarea del nodo movil
+	// Inicio la interrupcion
+	NVIC_EnableIRQ(EINT3_IRQn);
 
+	// Inicio la tarea del nodo movil
 	rutina_movil();
 
 	// En teoria nunca debe llegar a esta instancia

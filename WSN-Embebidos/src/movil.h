@@ -25,7 +25,7 @@ struct{
 		float32_t dist;
 		} typedef nodo_fijo_t;
 
-uint8_t sec_num;
+uint8_t sec_num,mje_nuevo;
 
 void rutina_movil (void);
 void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, float32_t * posicion);

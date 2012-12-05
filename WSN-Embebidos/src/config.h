@@ -8,7 +8,7 @@
 // 	Aca van los defines caracteristicos de cada nodo
 
 // Cambiar Address Local para cada nodo (menor a 10 es fijo, mayor o igual movil)
-#define ADDR_LOCAL			2
+#define ADDR_LOCAL			10
 
 // Si es un nodo fijo, setearle la posicion
 #define POS_X	13			// Posicion X de nodo fijo

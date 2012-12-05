@@ -222,14 +222,14 @@ frameData ccFrameRx(void)
 	frameData d;
 	u8  rxbuf[128];
 
-	ccCmd(SRXON, 0, 0, 0);
+	// ccCmd(SRXON, 0, 0, 0);
 
-	do
-	{
-		ccRegRd(EXCFLAG1, 1, &i);
-	}while(!(i & RX_FRM_DONE_BIT));
+	// do
+	// {
+	// 	ccRegRd(EXCFLAG1, 1, &i);
+	// }while(!(i & RX_FRM_DONE_BIT));
 
-	ccCmd(BCLR, EXCFLAG1, 0, 0);
+	// ccCmd(BCLR, EXCFLAG1, 0, 0);
 
 	ccCmd(MEMRD, RXFIFOCNT, 1, &rxcont);
 

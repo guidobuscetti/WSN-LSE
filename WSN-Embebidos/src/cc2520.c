@@ -12,7 +12,7 @@ u8 ccCmd(u8 cmd, u16 addr, u8 n, void * data)
 {
 	uint8_t txdata[n+10];
 	uint8_t rxdata[n+10];
-	u8 length;
+	u8 length,j;
 	int i;
 
 	if(n>128) return -1;
@@ -86,9 +86,14 @@ u8 ccCmd(u8 cmd, u16 addr, u8 n, void * data)
 	sspData.tx_data = txdata;
 
 	SSEL_Clr();
-	pausems(1);
+
+	for(j=0;j<100;j++);
+	//pausems(1);
+
 	SSP_ReadWrite(LPC_SSP1, &sspData, SSP_TRANSFER_POLLING);
-	pausems(1);
+
+	for(j=0;j<100;j++);
+	//pausems(1);
 	SSEL_Set();
 
 	switch(cmd)
@@ -181,6 +186,8 @@ s8 ccInit(u16 panid, u16 shortAddr, u64 extAddr, u8 autoAck)
 {
 	SSP_CFG_Type sspCfg;
 	PINSEL_CFG_Type pinCfg;
+	uint8_t aux;
+
 
 	//P0.0: RESETn
 	LPC_GPIO0->FIODIR |= 1;
@@ -237,6 +244,19 @@ s8 ccInit(u16 panid, u16 shortAddr, u64 extAddr, u8 autoAck)
 	ccSetLocalExtAddr(extAddr);
 	ccSetLocalPANID(panid);
 	ccSetLocalShortAddr(shortAddr);
+
+	// Configuro la el pin P0.1 como entrada
+	GPIO_SetDir(0,1<<1,0);
+
+	// Configuro el pin 5 para que informe nuevo frame
+	aux = 0x09;
+	ccRegWr(GPIOCTRL5,1,&aux);
+
+	// Configuro la interrupcion de GPIO
+	GPIO_IntCmd(0,1<<1,0);
+
+	// Activo la radio
+	ccCmd(SRXON, 0, 0, 0);
 
 	return 0;
 }
