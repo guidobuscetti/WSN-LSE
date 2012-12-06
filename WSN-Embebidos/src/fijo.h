@@ -9,4 +9,7 @@
 #include "cc2520-mac.h"
 
 void rutina_fijo (void);
+
+frameData d_rx,d_tx;
+
 #endif

@@ -1,5 +1,10 @@
 WSN-LSE
 =======
+Version 0.7:
+- Cambios en main.c, fijo.c, movil.c. Ahora las rutinas de los nodos fijos y moviles se activan tras interrupciones externas. Para ahorrar energia, cambian a modo Sleep(fijos) o DeepSleep(movil).
+- Cambios en cc2520 (inicializacion para configurar pin 5 de cc2520).
+- Cambios en cc2520-mac.c. Ahora ccFrameRx() no inicia la radio. Debe iniciarse antes.
+
 Version 0.5:
 - Actualizados valores de ajuste para RSSI
 

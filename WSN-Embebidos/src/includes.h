@@ -36,6 +36,9 @@ typedef char ascii;
 #include "lpc17xx_ssp.h"
 #include "lpc17xx_pinsel.h"
 #include "lpc17xx_gpio.h"
+#include "lpc17xx_clkpwr.h"
+#include "lpc17xx_systick.h"
+#include "lpc17xx_timer.h"
 
 // Incluyo definiciones matematicas
 #include "math.h"
@@ -50,6 +53,9 @@ typedef char ascii;
 #include "fijo.h"
 
 void pausems(int t);
+
+// Defino variables globales
+uint8_t mje_nuevo,mje_simulado;
 
 #endif /* INCLUDES_H_ */
 

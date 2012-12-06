@@ -10,6 +10,9 @@ src/main.d src/main.o: ../src/main.c ../src/includes.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc_types.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_pinsel.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_gpio.h \
+ /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_clkpwr.h \
+ /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_systick.h \
+ /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_timer.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p10_DSPLIB_CM3/inc/arm_math.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p10_DSPLIB_CM3/inc/arm/arm_math.h \
  /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/core_cm3.h \
@@ -39,6 +42,12 @@ src/main.d src/main.o: ../src/main.c ../src/includes.h \
 /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_pinsel.h:
 
 /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_gpio.h:
+
+/home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_clkpwr.h:
+
+/home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_systick.h:
+
+/home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/inc/lpc17xx_timer.h:
 
 /home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p10_DSPLIB_CM3/inc/arm_math.h:
 
