@@ -1,5 +1,8 @@
 WSN-LSE
 =======
+Version 0.7.1:
+- Corregidos bugs en movil.c y fijo.c que impedian realizar correctamente la trilateracion.
+
 Version 0.7:
 - Cambios en main.c, fijo.c, movil.c. Ahora las rutinas de los nodos fijos y moviles se activan tras interrupciones externas. Para ahorrar energia, cambian a modo Sleep(fijos) o DeepSleep(movil).
 - Cambios en cc2520 (inicializacion para configurar pin 5 de cc2520).

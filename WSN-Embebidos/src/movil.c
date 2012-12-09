@@ -178,21 +178,21 @@ void trilateracion (nodo_fijo_t * nodo_vec, uint8_t cant_nodos, float32_t * posi
 	s = arm_mat_trans_f32(&matA,&matAt);
 
 	// Matriz Auxiliar 1
-	float32_t aux1data[3*3];
-	arm_matrix_instance_f32 mataux1 =  {3,3,aux1data};
+	float32_t aux1data[2*2];
+	arm_matrix_instance_f32 mataux1 =  {2,2,aux1data};
 
 	// Aux 1 = At*A
 	s = arm_mat_mult_f32(&matAt,&matA,&mataux1);
 
 	// Invierto la matriz auxiliar
-	float32_t auxinvdata[3*3];
-	arm_matrix_instance_f32 matauxinv =  {3,3,auxinvdata};
+	float32_t auxinvdata[2*2];
+	arm_matrix_instance_f32 matauxinv =  {2,2,auxinvdata};
 
 	s = arm_mat_inverse_f32(&mataux1,&matauxinv);
 
 	// Matriz auxiliar 2
-	float32_t aux2data[3*3];
-	arm_matrix_instance_f32 mataux2 =  {3,3,aux2data};
+	float32_t aux2data[2*2];
+	arm_matrix_instance_f32 mataux2 =  {2,2,aux2data};
 
 	// Aux 2 = AuxInv * At
 	s = arm_mat_mult_f32(&matauxinv,&matAt,&mataux2);
