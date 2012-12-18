@@ -77,7 +77,7 @@ void rutina_movil (void)
 						nodo_vec[k].prom_rssi = (float32_t) promediar(nodo_vec[k].rssi,RSSI_MAX);	// Calculo promedio rssi
 					}
 
-					// Pregunto si hago trilateración
+					// Pregunto si hago trilateracion
 
 					// Caso simple : con 3 nodos fijos UNICAMETE, hago trilateracion
 
