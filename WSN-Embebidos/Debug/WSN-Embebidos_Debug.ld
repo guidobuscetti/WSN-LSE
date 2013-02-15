@@ -1,9 +1,9 @@
 /*
  * GENERATED FILE - DO NOT EDIT
- * (C) Code Red Technologies Ltd, 2008-2012
+ * (C) Code Red Technologies Ltd, 2008-2013
  * Generated linker script file for LPC1769
- * Created from generic_c.ld (vLPCXpresso v4.2 (3 [Build 255] [30/05/2012] ))
- * By LPCXpresso v4.2.3 [Build 255] [30/05/2012]  on Thu Dec 06 17:21:18 ART 2012
+ * Created from generic_c.ld (vLPCXpresso v4.3 (0 [Build 1023] [2012-09-19] ))
+ * By LPCXpresso v4.3.0 [Build 1023] [2012-09-19]  on Fri Feb 15 09:32:24 GMT-03:00 2013
  */
 
 
@@ -52,17 +52,18 @@ SECTIONS
 
 	/*
 	 * for exception handling/unwind - some Newlib functions (in common
-	 * with C++ and STDC++) use this.
+	 * with C++ and STDC++) use this. 
+	 * Use KEEP so not discarded with --gc-sections
 	 */
 	.ARM.extab : ALIGN(4)
 	{
-		*(.ARM.extab* .gnu.linkonce.armextab.*)
+		KEEP(*(.ARM.extab* .gnu.linkonce.armextab.*))
 	} > MFlash512
 	__exidx_start = .;
 	
 	.ARM.exidx : ALIGN(4)
 	{
-		*(.ARM.exidx* .gnu.linkonce.armexidx.*)
+		KEEP(*(.ARM.exidx* .gnu.linkonce.armexidx.*))
 	} > MFlash512
 	__exidx_end = .;
 	
@@ -82,6 +83,8 @@ SECTIONS
 	.uninit_RESERVED : ALIGN(4)
 	{
 		KEEP(*(.bss.$RESERVED*))
+		. = ALIGN(4) ;
+		_end_uninit_RESERVED = .;
 	} > RamLoc32
 
 	.data : ALIGN(4)

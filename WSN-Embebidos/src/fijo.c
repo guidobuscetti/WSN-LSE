@@ -99,6 +99,7 @@ void rutina_fijo (void)
 				}
 				else if (d_rx.src.shortAddr.addr >=10 )
 				{
+					/*
 					// Si es mensaje de nodo movil, adapto el mensaje
 
 					// Copio direccion del nodo a 2 primeros bytes
@@ -121,6 +122,11 @@ void rutina_fijo (void)
 
 					// Registro el envio
 					reg_nodos[d_rx.src.shortAddr.addr - 10] = d_rx.payload[0];
+					*/
+
+					// Si el mensaje es de nodo movil, guado las posiciones (solo llega al nodo encuestador)
+					memcpy(&posicion_x,d_rx.payload,sizeof(float32_t));
+					memcpy(&posicion_y,d_rx.payload+sizeof(float32_t),sizeof(float32_t));
 				}
 
 			}

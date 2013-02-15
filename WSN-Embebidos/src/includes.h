@@ -55,7 +55,25 @@ typedef char ascii;
 void pausems(int t);
 
 // Defino variables globales
-uint8_t mje_nuevo,mje_simulado;
+uint8_t mje_nuevo,mje_simulado,enviando,numero_mje,OutReport,InReport[33];
+float32_t posicion_x,posicion_y;
+
+
+//Includes si se trata del nodo conectado a PC
+#if (ADDR_LOCAL==1)
+#include "lpc_types.h"
+
+#include "usb.h"
+#include "usbcfg.h"
+#include "usbhw.h"
+
+#include "USBapp.h"
+#include "hid.h"
+
+#include "lpc17xx_libcfg_default.h"
+#include "lpc17xx_nvic.h"
+#endif
+
 
 #endif /* INCLUDES_H_ */
 

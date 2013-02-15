@@ -29,7 +29,7 @@ all: WSN-Embebidos.axf
 WSN-Embebidos.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p00_LPC17xx/Debug" -L"/home/joaquin/Documentos/Embebidos/Repositorio/WSN-LSE/CMSISv2p10_DSPLIB_CM3/lib" -Xlinker -Map="WSN-Embebidos.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "WSN-Embebidos_Debug.ld" -o"WSN-Embebidos.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug" -L"C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p10_DSPLIB_CM3\lib" -Xlinker -Map="WSN-Embebidos.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "WSN-Embebidos_Debug.ld" -o"WSN-Embebidos.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

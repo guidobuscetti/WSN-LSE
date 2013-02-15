@@ -86,6 +86,16 @@ int main (void)
 	// Inicio la interrupcion externa
 	NVIC_EnableIRQ(EINT3_IRQn);
 
+#if (ADDR_LOCAL == 1)
+	enviando = 0;
+	numero_mje = 0;
+
+	// Si es el nodo conectado a la PC, inicializo el USB
+	USB_Init();
+	USB_Connect(TRUE);
+#endif
+
+
 #if (ADDR_LOCAL == 2)
 	// Si es el primer nodo, seteo el timer que sincroniza red
 	TIM_TIMERCFG_Type TIM_ConfigStruct;
@@ -121,7 +131,6 @@ int main (void)
 }
 #endif
 
-
 void EINT3_IRQHandler( void )
 {
 	// Limpio la interrupción
@@ -154,4 +163,39 @@ void TIMER0_IRQHandler (void)
 
 	// Limpio el flag de interrupcion
 	TIM_ClearIntPending(LPC_TIM0,TIM_MR0_INT);
+}
+
+
+
+// Función que envía report al Host
+void GetInReport (void) {
+	uint8_t i;
+
+	// Si está habilitado el envio, se envia alternadamente PosX y PosY
+	if (enviando){
+		if(numero_mje)
+		{
+			InReport[0] = POS_Y;
+			memcpy(InReport+1,&posicion_y,sizeof(float32_t));
+			numero_mje = 0;
+		}
+		else
+		{
+			InReport[0] = POS_X;
+			memcpy(InReport+1,&posicion_x,sizeof(float32_t));
+			numero_mje = 1;
+		}
+
+	}
+	else
+		for(i=0;i<33;i++) InReport[i] = 0x00;
+}
+
+// Función que recibe report del host (para iniciar transferencia)
+void SetOutReport (void) {
+
+	// Si se recibe una "S" se envia la posición
+	if (OutReport == 'S')
+		enviando = 1;
+
 }
