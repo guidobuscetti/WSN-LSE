@@ -1,0 +1,661 @@
+Archive member included because of file (symbol)
+
+C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                              ./src/cr_startup_lpc176x.o (SystemInit)
+c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+                              ./src/cr_startup_lpc176x.o (__main)
+c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+                              C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o) (__aeabi_uldivmod)
+
+Allocating common symbols
+Common symbol       size              file
+
+USB_AltSetting      0x1               ./src/usbcore.o
+InReport            0x21              ./src/main.o
+EP0Buf              0x8               ./src/usbcore.o
+USB_EndPointMask    0x4               ./src/usbcore.o
+USB_DeviceAddress   0x1               ./src/usbcore.o
+posicion_y          0x4               ./src/main.o
+udca                0x80              ./src/usbhw.o
+DDMemMap            0x8               ./src/usbhw.o
+USB_EndPointHalt    0x4               ./src/usbcore.o
+posicion_x          0x4               ./src/main.o
+numero_mje          0x1               ./src/main.o
+HID_IdleTime        0x1               ./src/hiduser.o
+USB_Configuration   0x1               ./src/usbcore.o
+enviando            0x1               ./src/main.o
+SetupPacket         0x8               ./src/usbcore.o
+USB_NumInterfaces   0x1               ./src/usbcore.o
+OutReport           0x1               ./src/main.o
+HID_Protocol        0x1               ./src/hiduser.o
+EP0Data             0x8               ./src/usbcore.o
+USB_DeviceStatus    0x2               ./src/usbcore.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .data          0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .bss           0x00000000        0x0 ./src/cr_startup_lpc176x.o
+ .text          0x00000000        0x0 ./src/hiduser.o
+ .data          0x00000000        0x0 ./src/hiduser.o
+ .bss           0x00000000        0x0 ./src/hiduser.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .text          0x00000000        0x0 ./src/usbcore.o
+ .data          0x00000000        0x0 ./src/usbcore.o
+ .bss           0x00000000        0x0 ./src/usbcore.o
+ .text.USB_StatusOutStage
+                0x00000000       0x18 ./src/usbcore.o
+ .text          0x00000000        0x0 ./src/usbdesc.o
+ .data          0x00000000        0x0 ./src/usbdesc.o
+ .bss           0x00000000        0x0 ./src/usbdesc.o
+ .text          0x00000000        0x0 ./src/usbhw.o
+ .data          0x00000000        0x0 ./src/usbhw.o
+ .bss           0x00000000        0x0 ./src/usbhw.o
+ .text.USB_WakeUp
+                0x00000000       0x2c ./src/usbhw.o
+ .text.USB_WakeUpCfg
+                0x00000000       0x14 ./src/usbhw.o
+ .text.USB_DirCtrlEP
+                0x00000000       0x14 ./src/usbhw.o
+ .text.USB_DisableEP
+                0x00000000       0x34 ./src/usbhw.o
+ .rodata.DDAdr  0x00000000        0x8 ./src/usbhw.o
+ .rodata.DDSz   0x00000000        0x8 ./src/usbhw.o
+ .text.USB_DMA_Setup
+                0x00000000      0x224 ./src/usbhw.o
+ .text.USB_DMA_Enable
+                0x00000000       0x2c ./src/usbhw.o
+ .text.USB_DMA_Disable
+                0x00000000       0x2c ./src/usbhw.o
+ .text.USB_DMA_Status
+                0x00000000       0xa4 ./src/usbhw.o
+ .text.USB_DMA_BufAdr
+                0x00000000       0x40 ./src/usbhw.o
+ .text.USB_DMA_BufCnt
+                0x00000000       0x44 ./src/usbhw.o
+ .text.USB_GetFrame
+                0x00000000       0x48 ./src/usbhw.o
+ .text          0x00000000        0x0 ./src/usbuser.o
+ .data          0x00000000        0x0 ./src/usbuser.o
+ .bss           0x00000000        0x0 ./src/usbuser.o
+ .text.USB_EndPoint3
+                0x00000000       0x30 ./src/usbuser.o
+ .text.USB_EndPoint4
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint5
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint6
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint7
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint8
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint9
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint10
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint11
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint12
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint13
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint14
+                0x00000000       0x14 ./src/usbuser.o
+ .text.USB_EndPoint15
+                0x00000000       0x14 ./src/usbuser.o
+ .text          0x00000000        0x0 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .data          0x00000000        0x0 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .bss           0x00000000        0x0 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text.SystemCoreClockUpdate
+                0x00000000       0xf0 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .data.SystemCoreClock
+                0x00000000        0x4 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idiv
+                0x00000000       0x10 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idivmod
+                0x00000000       0x16 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uidiv
+                0x00000000       0x10 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uidivmod
+                0x00000000       0x16 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_ldivmod
+                0x00000000       0x26 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_uldivmod
+                0x00000000      0x174 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_idiv0
+                0x00000000        0x2 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+ .text.__aeabi_division_ldiv0
+                0x00000000        0x2 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MFlash512        0x00000000         0x00080000         xr
+RamLoc32         0x10000000         0x00008000         xrw
+RamAHB32         0x2007c000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/cr_startup_lpc176x.o
+LOAD ./src/hiduser.o
+LOAD ./src/main.o
+LOAD ./src/usbcore.o
+LOAD ./src/usbdesc.o
+LOAD ./src/usbhw.o
+LOAD ./src/usbuser.o
+LOAD C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a
+START GROUP
+LOAD c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a
+LOAD c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a
+END GROUP
+                0x00080000                __top_MFlash512 = 0x80000
+                0x10008000                __top_RamLoc32 = 0x10008000
+                0x20084000                __top_RamAHB32 = 0x20084000
+
+.text           0x00000000     0x19a0
+ FILL mask 0xff
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xcc ./src/cr_startup_lpc176x.o
+                0x00000000                g_pfnVectors
+                0x000000cc                . = ALIGN (0x4)
+                0x000000cc                __section_table_start = .
+                0x000000cc                __data_section_table = .
+                0x000000cc        0x4 LONG 0x19a0 LOADADDR (.data)
+                0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
+                0x000000d4        0x4 LONG 0x0 SIZEOF (.data)
+                0x000000d8        0x4 LONG 0x19a0 LOADADDR (.data_RAM2)
+                0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
+                0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
+                0x000000e4                __data_section_table_end = .
+                0x000000e4                __bss_section_table = .
+                0x000000e4        0x4 LONG 0x10000220 ADDR (.bss)
+                0x000000e8        0x4 LONG 0xf0 SIZEOF (.bss)
+                0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
+                0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
+                0x000000f4                __bss_section_table_end = .
+                0x000000f4                __section_table_end = .
+ *(.after_vectors*)
+ .after_vectors
+                0x000000f4       0x78 ./src/cr_startup_lpc176x.o
+                0x000000f4                NMI_Handler
+                0x000000f6                HardFault_Handler
+                0x000000f8                MemManage_Handler
+                0x000000fa                BusFault_Handler
+                0x000000fc                UsageFault_Handler
+                0x000000fe                SVC_Handler
+                0x00000100                DebugMon_Handler
+                0x00000102                PendSV_Handler
+                0x00000104                SysTick_Handler
+                0x00000106                data_init
+                0x00000118                bss_init
+                0x00000128                ResetISR
+                0x00000168                UART1_IRQHandler
+                0x00000168                EINT3_IRQHandler
+                0x00000168                CANActivity_IRQHandler
+                0x00000168                TIMER3_IRQHandler
+                0x00000168                UART0_IRQHandler
+                0x00000168                EINT2_IRQHandler
+                0x00000168                I2C1_IRQHandler
+                0x00000168                IntDefaultHandler
+                0x00000168                PLL0_IRQHandler
+                0x00000168                PWM1_IRQHandler
+                0x00000168                PLL1_IRQHandler
+                0x00000168                SSP0_IRQHandler
+                0x00000168                I2S_IRQHandler
+                0x00000168                I2C2_IRQHandler
+                0x00000168                RTC_IRQHandler
+                0x00000168                TIMER0_IRQHandler
+                0x00000168                SPI_IRQHandler
+                0x00000168                USBActivity_IRQHandler
+                0x00000168                EINT1_IRQHandler
+                0x00000168                TIMER1_IRQHandler
+                0x00000168                UART2_IRQHandler
+                0x00000168                ADC_IRQHandler
+                0x00000168                SSP1_IRQHandler
+                0x00000168                BOD_IRQHandler
+                0x00000168                I2C0_IRQHandler
+                0x00000168                WDT_IRQHandler
+                0x00000168                RIT_IRQHandler
+                0x00000168                QEI_IRQHandler
+                0x00000168                EINT0_IRQHandler
+                0x00000168                CAN_IRQHandler
+                0x00000168                DMA_IRQHandler
+                0x00000168                TIMER2_IRQHandler
+                0x00000168                UART3_IRQHandler
+                0x00000168                MCPWM_IRQHandler
+                0x00000168                ENET_IRQHandler
+ *(.text*)
+ .text.HID_GetReport
+                0x0000016c       0x48 ./src/hiduser.o
+                0x0000016c                HID_GetReport
+ .text.HID_SetReport
+                0x000001b4       0x48 ./src/hiduser.o
+                0x000001b4                HID_SetReport
+ .text.HID_GetIdle
+                0x000001fc       0x30 ./src/hiduser.o
+                0x000001fc                HID_GetIdle
+ .text.HID_SetIdle
+                0x0000022c       0x30 ./src/hiduser.o
+                0x0000022c                HID_SetIdle
+ .text.HID_GetProtocol
+                0x0000025c       0x24 ./src/hiduser.o
+                0x0000025c                HID_GetProtocol
+ .text.HID_SetProtocol
+                0x00000280       0x24 ./src/hiduser.o
+                0x00000280                HID_SetProtocol
+ .text.GetInReport
+                0x000002a4       0xb8 ./src/main.o
+                0x000002a4                GetInReport
+ .text.SetOutReport
+                0x0000035c       0x28 ./src/main.o
+                0x0000035c                SetOutReport
+ .text.main     0x00000384       0x50 ./src/main.o
+                0x00000384                main
+ .text.memcpy   0x000003d4       0x48 ./src/main.o
+                0x000003d4                memcpy
+ .text.USB_ResetCore
+                0x0000041c       0x50 ./src/usbcore.o
+                0x0000041c                USB_ResetCore
+ .text.USB_SetupStage
+                0x0000046c       0x18 ./src/usbcore.o
+                0x0000046c                USB_SetupStage
+ .text.USB_DataInStage
+                0x00000484       0x7c ./src/usbcore.o
+                0x00000484                USB_DataInStage
+ .text.USB_DataOutStage
+                0x00000500       0x58 ./src/usbcore.o
+                0x00000500                USB_DataOutStage
+ .text.USB_StatusInStage
+                0x00000558       0x18 ./src/usbcore.o
+                0x00000558                USB_StatusInStage
+ .text.USB_GetDescriptor
+                0x00000570      0x1b8 ./src/usbcore.o
+                0x00000570                USB_GetDescriptor
+ .text.USB_SetConfiguration
+                0x00000728      0x10c ./src/usbcore.o
+                0x00000728                USB_SetConfiguration
+ .text.USB_EndPoint0
+                0x00000834      0x358 ./src/usbcore.o
+                0x00000834                USB_EndPoint0
+ .text.NVIC_EnableIRQ
+                0x00000b8c       0x38 ./src/usbhw.o
+ .text.EPAdr    0x00000bc4       0x34 ./src/usbhw.o
+                0x00000bc4                EPAdr
+ .text.WrCmd    0x00000bf8       0x48 ./src/usbhw.o
+                0x00000bf8                WrCmd
+ .text.WrCmdDat
+                0x00000c40       0x7c ./src/usbhw.o
+                0x00000c40                WrCmdDat
+ .text.RdCmdDat
+                0x00000cbc       0x54 ./src/usbhw.o
+                0x00000cbc                RdCmdDat
+ .text.USB_Init
+                0x00000d10       0xf4 ./src/usbhw.o
+                0x00000d10                USB_Init
+ .text.USB_Connect
+                0x00000e04       0x34 ./src/usbhw.o
+                0x00000e04                USB_Connect
+ .text.USB_Reset
+                0x00000e38      0x180 ./src/usbhw.o
+                0x00000e38                USB_Reset
+ .text.USB_Suspend
+                0x00000fb8        0xc ./src/usbhw.o
+                0x00000fb8                USB_Suspend
+ .text.USB_Resume
+                0x00000fc4        0xc ./src/usbhw.o
+                0x00000fc4                USB_Resume
+ .text.USB_SetAddress
+                0x00000fd0       0x2c ./src/usbhw.o
+                0x00000fd0                USB_SetAddress
+ .text.USB_Configure
+                0x00000ffc       0x68 ./src/usbhw.o
+                0x00000ffc                USB_Configure
+ .text.USB_ConfigEP
+                0x00001064       0x94 ./src/usbhw.o
+                0x00001064                USB_ConfigEP
+ .text.USB_EnableEP
+                0x000010f8       0x30 ./src/usbhw.o
+                0x000010f8                USB_EnableEP
+ .text.USB_ResetEP
+                0x00001128       0x30 ./src/usbhw.o
+                0x00001128                USB_ResetEP
+ .text.USB_SetStallEP
+                0x00001158       0x34 ./src/usbhw.o
+                0x00001158                USB_SetStallEP
+ .text.USB_ClrStallEP
+                0x0000118c       0x30 ./src/usbhw.o
+                0x0000118c                USB_ClrStallEP
+ .text.USB_ReadEP
+                0x000011bc       0xd0 ./src/usbhw.o
+                0x000011bc                USB_ReadEP
+ .text.USB_WriteEP
+                0x0000128c       0xac ./src/usbhw.o
+                0x0000128c                USB_WriteEP
+ .text.USB_IRQHandler
+                0x00001338      0x3e0 ./src/usbhw.o
+                0x00001338                USB_IRQHandler
+ .text.USB_Reset_Event
+                0x00001718        0xc ./src/usbuser.o
+                0x00001718                USB_Reset_Event
+ .text.USB_Configure_Event
+                0x00001724       0x2c ./src/usbuser.o
+                0x00001724                USB_Configure_Event
+ .text.USB_EndPoint1
+                0x00001750       0x30 ./src/usbuser.o
+                0x00001750                USB_EndPoint1
+ .text.USB_EndPoint2
+                0x00001780       0x30 ./src/usbuser.o
+                0x00001780                USB_EndPoint2
+ .text.SystemInit
+                0x000017b0       0xe4 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x000017b0                SystemInit
+ .text.__weak_main
+                0x00001894        0x4 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+                0x00001894                __weak_main
+                0x00001894                __main
+ *(.rodata .rodata.*)
+ .rodata.HID_ReportDescriptor
+                0x00001898       0x28 ./src/usbdesc.o
+                0x00001898                HID_ReportDescriptor
+ .rodata.HID_ReportDescSize
+                0x000018c0        0x2 ./src/usbdesc.o
+                0x000018c0                HID_ReportDescSize
+ *fill*         0x000018c2        0x2 00
+ .rodata.USB_DeviceDescriptor
+                0x000018c4       0x14 ./src/usbdesc.o
+                0x000018c4                USB_DeviceDescriptor
+ .rodata.USB_ConfigDescriptor
+                0x000018d8       0x24 ./src/usbdesc.o
+                0x000018d8                USB_ConfigDescriptor
+ .rodata.USB_StringDescriptor
+                0x000018fc       0x64 ./src/usbdesc.o
+                0x000018fc                USB_StringDescriptor
+ .rodata.USB_P_EP
+                0x00001960       0x40 ./src/usbuser.o
+                0x00001960                USB_P_EP
+                0x000019a0                . = ALIGN (0x4)
+
+.glue_7         0x000019a0        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x000019a0        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x000019a0        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x000019a0        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000019a0                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x000019a0                __exidx_end = .
+                0x000019a0                _etext = .
+
+.data_RAM2      0x2007c000        0x0 load address 0x000019a0
+ FILL mask 0xff
+ *(.data.$RAM2*)
+ *(.data.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.uninit_RESERVED
+                0x10000000        0x0
+ *(.bss.$RESERVED*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _end_uninit_RESERVED = .
+
+.data           0x10000000        0x0 load address 0x000019a0
+ FILL mask 0xff
+                0x10000000                _data = .
+ *(vtable)
+ *(.data*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _edata = .
+
+USB_RAM         0x10000000      0x220 load address 0x000019a0
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                PROVIDE (__start_USB_RAM, ABSOLUTE (.))
+ USB_RAM        0x10000000      0x220 ./src/usbhw.o
+                0x10000000                UDCA
+                0x10000080                DD_NISO_Mem
+                0x10000180                DD_ISO_Mem
+                0x10000220                PROVIDE (__stop_USB_RAM, .)
+
+.bss_RAM2       0x2007c000        0x0
+ *(.bss.$RAM2*)
+ *(.bss.$RamAHB32*)
+                0x2007c000                . = ALIGN (0x4)
+
+.bss            0x10000220       0xf0
+                0x10000220                _bss = .
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x10000220        0x2 ./src/hiduser.o
+                0x10000220                HID_IdleTime
+                0x10000221                HID_Protocol
+ *fill*         0x10000222        0x2 00
+ COMMON         0x10000224       0x2f ./src/main.o
+                0x10000224                InReport
+                0x10000248                posicion_y
+                0x1000024c                posicion_x
+                0x10000250                numero_mje
+                0x10000251                enviando
+                0x10000252                OutReport
+ *fill*         0x10000253        0x1 00
+ COMMON         0x10000254       0x32 ./src/usbcore.o
+                0x10000254                USB_AltSetting
+                0x10000258                EP0Buf
+                0x10000260                USB_EndPointMask
+                0x10000264                USB_DeviceAddress
+                0x10000268                USB_EndPointHalt
+                0x1000026c                USB_Configuration
+                0x10000270                SetupPacket
+                0x10000278                USB_NumInterfaces
+                0x1000027c                EP0Data
+                0x10000284                USB_DeviceStatus
+ *fill*         0x10000286        0x2 00
+ COMMON         0x10000288       0x88 ./src/usbhw.o
+                0x10000288                udca
+                0x10000308                DDMemMap
+                0x10000310                . = ALIGN (0x4)
+                0x10000310                _ebss = .
+                0x10000310                PROVIDE (end, .)
+                0x10000310                PROVIDE (_pvHeapStart, .)
+                0x10008000                PROVIDE (_vStackTop, (__top_RamLoc32 - 0x0))
+OUTPUT(USB.axf elf32-littlearm)
+
+.debug_abbrev   0x00000000      0xa8a
+ .debug_abbrev  0x00000000      0x10f ./src/cr_startup_lpc176x.o
+ .debug_abbrev  0x0000010f      0x138 ./src/hiduser.o
+ .debug_abbrev  0x00000247      0x11d ./src/main.o
+ .debug_abbrev  0x00000364      0x203 ./src/usbcore.o
+ .debug_abbrev  0x00000567       0x74 ./src/usbdesc.o
+ .debug_abbrev  0x000005db      0x2c4 ./src/usbhw.o
+ .debug_abbrev  0x0000089f      0x108 ./src/usbuser.o
+ .debug_abbrev  0x000009a7       0xe3 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_info     0x00000000     0x2f06
+ .debug_info    0x00000000      0x2e3 ./src/cr_startup_lpc176x.o
+ .debug_info    0x000002e3      0x335 ./src/hiduser.o
+ .debug_info    0x00000618      0x26b ./src/main.o
+ .debug_info    0x00000883      0x789 ./src/usbcore.o
+ .debug_info    0x0000100c      0x159 ./src/usbdesc.o
+ .debug_info    0x00001165     0x163d ./src/usbhw.o
+ .debug_info    0x000027a2      0x3d5 ./src/usbuser.o
+ .debug_info    0x00002b77      0x38f C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_line     0x00000000     0x2734
+ .debug_line    0x00000000      0x405 ./src/cr_startup_lpc176x.o
+ .debug_line    0x00000405      0x440 ./src/hiduser.o
+ .debug_line    0x00000845      0x4a6 ./src/main.o
+ .debug_line    0x00000ceb      0x552 ./src/usbcore.o
+ .debug_line    0x0000123d      0x3ae ./src/usbdesc.o
+ .debug_line    0x000015eb      0x828 ./src/usbhw.o
+ .debug_line    0x00001e13      0x549 ./src/usbuser.o
+ .debug_line    0x0000235c      0x3d8 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_macinfo  0x00000000    0x38874
+ .debug_macinfo
+                0x00000000     0x313f ./src/cr_startup_lpc176x.o
+ .debug_macinfo
+                0x0000313f     0x5d7f ./src/hiduser.o
+ .debug_macinfo
+                0x00008ebe     0xa750 ./src/main.o
+ .debug_macinfo
+                0x0001360e     0x62da ./src/usbcore.o
+ .debug_macinfo
+                0x000198e8     0x5eb9 ./src/usbdesc.o
+ .debug_macinfo
+                0x0001f7a1     0x8f40 ./src/usbhw.o
+ .debug_macinfo
+                0x000286e1     0x8868 ./src/usbuser.o
+ .debug_macinfo
+                0x00030f49     0x792b C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_loc      0x00000000      0xfa8
+ .debug_loc     0x00000000      0x1b8 ./src/cr_startup_lpc176x.o
+ .debug_loc     0x000001b8      0x108 ./src/hiduser.o
+ .debug_loc     0x000002c0       0xc8 ./src/main.o
+ .debug_loc     0x00000388      0x1c8 ./src/usbcore.o
+ .debug_loc     0x00000550      0x698 ./src/usbhw.o
+ .debug_loc     0x00000be8      0x3a0 ./src/usbuser.o
+ .debug_loc     0x00000f88       0x20 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_pubnames
+                0x00000000      0x867
+ .debug_pubnames
+                0x00000000      0x115 ./src/cr_startup_lpc176x.o
+ .debug_pubnames
+                0x00000115       0xa0 ./src/hiduser.o
+ .debug_pubnames
+                0x000001b5       0x9c ./src/main.o
+ .debug_pubnames
+                0x00000251      0x189 ./src/usbcore.o
+ .debug_pubnames
+                0x000003da       0x8d ./src/usbdesc.o
+ .debug_pubnames
+                0x00000467      0x252 ./src/usbhw.o
+ .debug_pubnames
+                0x000006b9      0x15f ./src/usbuser.o
+ .debug_pubnames
+                0x00000818       0x4f C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_pubtypes
+                0x00000000      0x473
+ .debug_pubtypes
+                0x00000000       0x12 ./src/cr_startup_lpc176x.o
+ .debug_pubtypes
+                0x00000012       0x9c ./src/hiduser.o
+ .debug_pubtypes
+                0x000000ae       0x38 ./src/main.o
+ .debug_pubtypes
+                0x000000e6      0x1de ./src/usbcore.o
+ .debug_pubtypes
+                0x000002c4       0x2b ./src/usbdesc.o
+ .debug_pubtypes
+                0x000002ef      0x10f ./src/usbhw.o
+ .debug_pubtypes
+                0x000003fe       0x37 ./src/usbuser.o
+ .debug_pubtypes
+                0x00000435       0x3e C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_aranges  0x00000000      0x338
+ .debug_aranges
+                0x00000000       0x80 ./src/cr_startup_lpc176x.o
+ .debug_aranges
+                0x00000080       0x48 ./src/hiduser.o
+ .debug_aranges
+                0x000000c8       0x38 ./src/main.o
+ .debug_aranges
+                0x00000100       0x60 ./src/usbcore.o
+ .debug_aranges
+                0x00000160      0x110 ./src/usbhw.o
+ .debug_aranges
+                0x00000270       0xa0 ./src/usbuser.o
+ .debug_aranges
+                0x00000310       0x28 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_ranges   0x00000000      0x2c8
+ .debug_ranges  0x00000000       0x70 ./src/cr_startup_lpc176x.o
+ .debug_ranges  0x00000070       0x38 ./src/hiduser.o
+ .debug_ranges  0x000000a8       0x28 ./src/main.o
+ .debug_ranges  0x000000d0       0x50 ./src/usbcore.o
+ .debug_ranges  0x00000120      0x100 ./src/usbhw.o
+ .debug_ranges  0x00000220       0x90 ./src/usbuser.o
+ .debug_ranges  0x000002b0       0x18 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+
+.debug_str      0x00000000     0x1372
+ .debug_str     0x00000000      0x245 ./src/cr_startup_lpc176x.o
+                                0x26d (size before relaxing)
+ .debug_str     0x00000245      0x11e ./src/hiduser.o
+                                0x249 (size before relaxing)
+ .debug_str     0x00000363       0x83 ./src/main.o
+                                0x1ac (size before relaxing)
+ .debug_str     0x000003e6      0x340 ./src/usbcore.o
+                                0x577 (size before relaxing)
+ .debug_str     0x00000726       0x11 ./src/usbdesc.o
+                                0x184 (size before relaxing)
+ .debug_str     0x00000737      0xa6b ./src/usbhw.o
+                                0xc55 (size before relaxing)
+ .debug_str     0x000011a2      0x10d ./src/usbuser.o
+                                0x258 (size before relaxing)
+ .debug_str     0x000012af       0xc3 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                                0x2b0 (size before relaxing)
+
+.comment        0x00000000       0x2a
+ .comment       0x00000000       0x2a ./src/cr_startup_lpc176x.o
+                                 0x2b (size before relaxing)
+ .comment       0x00000000       0x2b ./src/hiduser.o
+ .comment       0x00000000       0x2b ./src/main.o
+ .comment       0x00000000       0x2b ./src/usbcore.o
+ .comment       0x00000000       0x2b ./src/usbdesc.o
+ .comment       0x00000000       0x2b ./src/usbhw.o
+ .comment       0x00000000       0x2b ./src/usbuser.o
+ .comment       0x00000000       0x2b C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .comment       0x00000000       0x2b c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x31 ./src/cr_startup_lpc176x.o
+ .ARM.attributes
+                0x00000031       0x31 ./src/hiduser.o
+ .ARM.attributes
+                0x00000062       0x31 ./src/main.o
+ .ARM.attributes
+                0x00000093       0x31 ./src/usbcore.o
+ .ARM.attributes
+                0x000000c4       0x31 ./src/usbdesc.o
+ .ARM.attributes
+                0x000000f5       0x31 ./src/usbhw.o
+ .ARM.attributes
+                0x00000126       0x31 ./src/usbuser.o
+ .ARM.attributes
+                0x00000157       0x31 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .ARM.attributes
+                0x00000188       0x31 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+ .ARM.attributes
+                0x000001b9       0x21 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libcr_eabihelpers.a(division.o)
+
+.debug_frame    0x00000000      0x920
+ .debug_frame   0x00000000       0xf0 ./src/cr_startup_lpc176x.o
+ .debug_frame   0x000000f0       0xa8 ./src/hiduser.o
+ .debug_frame   0x00000198       0x80 ./src/main.o
+ .debug_frame   0x00000218      0x11c ./src/usbcore.o
+ .debug_frame   0x00000334      0x3b8 ./src/usbhw.o
+ .debug_frame   0x000006ec      0x1f8 ./src/usbuser.o
+ .debug_frame   0x000008e4       0x3c C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
