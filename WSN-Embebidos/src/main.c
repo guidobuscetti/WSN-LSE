@@ -133,7 +133,7 @@ int main (void)
 
 void EINT3_IRQHandler( void )
 {
-	// Limpio la interrupción
+	// Limpio la interrupcion
 	GPIO_ClearInt(0,(1<<1));
 
 	// Limpio el flag en cc2520
@@ -167,7 +167,7 @@ void TIMER0_IRQHandler (void)
 
 
 
-// Función que envía report al Host
+// Funcion que envia report al Host
 void GetInReport (void) {
 	uint8_t i;
 
@@ -191,10 +191,10 @@ void GetInReport (void) {
 		for(i=0;i<33;i++) InReport[i] = 0x00;
 }
 
-// Función que recibe report del host (para iniciar transferencia)
+// Funcion que recibe report del host (para iniciar transferencia)
 void SetOutReport (void) {
 
-	// Si se recibe una "S" se envia la posición
+	// Si se recibe una "S" se envia la posicion
 	if (OutReport == 'S')
 		enviando = 1;
 

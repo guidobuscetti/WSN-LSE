@@ -1,5 +1,9 @@
 WSN-LSE
 =======
+Version 0.8:
+- Agregada la implementacion de host USB HID para nodo encuestador.
+- Agregada la interfaz gráfica de usuario (GUI). Compatible unicamente con Linux. Requiere de las librerias libusb instaladas.
+
 Version 0.7.1:
 - Corregidos bugs en movil.c y fijo.c que impedian realizar correctamente la trilateracion.
 
