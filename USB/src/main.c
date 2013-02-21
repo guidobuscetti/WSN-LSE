@@ -54,22 +54,12 @@ void GetInReport (void) {
 
 
 	if (enviando){
-		if(numero_mje)
-		{
-			InReport[0] = POS_Y;
-			memcpy(InReport+1,&posicion_y,sizeof(float32_t));
-			numero_mje = 0;
-		}
-		else
-		{
-			InReport[0] = POS_X;
-			memcpy(InReport+1,&posicion_x,sizeof(float32_t));
-			numero_mje = 1;
-		}
 
+		memcpy(InReport,&posicion_x,sizeof(float32_t));
+		memcpy(InReport+sizeof(float32_t),&posicion_y,sizeof(float32_t));
 	}
 	else
-		for(i=0;i<33;i++) InReport[i] = 0x00;
+		for(i=0;i<8;i++) InReport[i] = 0x00;
 
 }
 

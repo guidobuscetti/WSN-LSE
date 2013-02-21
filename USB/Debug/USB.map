@@ -162,7 +162,7 @@ END GROUP
                 0x10008000                __top_RamLoc32 = 0x10008000
                 0x20084000                __top_RamAHB32 = 0x20084000
 
-.text           0x00000000     0x19a0
+.text           0x00000000     0x195c
  FILL mask 0xff
  *(.isr_vector)
  .isr_vector    0x00000000       0xcc ./src/cr_startup_lpc176x.o
@@ -170,10 +170,10 @@ END GROUP
                 0x000000cc                . = ALIGN (0x4)
                 0x000000cc                __section_table_start = .
                 0x000000cc                __data_section_table = .
-                0x000000cc        0x4 LONG 0x19a0 LOADADDR (.data)
+                0x000000cc        0x4 LONG 0x195c LOADADDR (.data)
                 0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000d4        0x4 LONG 0x0 SIZEOF (.data)
-                0x000000d8        0x4 LONG 0x19a0 LOADADDR (.data_RAM2)
+                0x000000d8        0x4 LONG 0x195c LOADADDR (.data_RAM2)
                 0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000e4                __data_section_table_end = .
@@ -254,159 +254,159 @@ END GROUP
                 0x00000280       0x24 ./src/hiduser.o
                 0x00000280                HID_SetProtocol
  .text.GetInReport
-                0x000002a4       0xb8 ./src/main.o
+                0x000002a4       0x74 ./src/main.o
                 0x000002a4                GetInReport
  .text.SetOutReport
-                0x0000035c       0x28 ./src/main.o
-                0x0000035c                SetOutReport
- .text.main     0x00000384       0x50 ./src/main.o
-                0x00000384                main
- .text.memcpy   0x000003d4       0x48 ./src/main.o
-                0x000003d4                memcpy
+                0x00000318       0x28 ./src/main.o
+                0x00000318                SetOutReport
+ .text.main     0x00000340       0x50 ./src/main.o
+                0x00000340                main
+ .text.memcpy   0x00000390       0x48 ./src/main.o
+                0x00000390                memcpy
  .text.USB_ResetCore
-                0x0000041c       0x50 ./src/usbcore.o
-                0x0000041c                USB_ResetCore
+                0x000003d8       0x50 ./src/usbcore.o
+                0x000003d8                USB_ResetCore
  .text.USB_SetupStage
-                0x0000046c       0x18 ./src/usbcore.o
-                0x0000046c                USB_SetupStage
+                0x00000428       0x18 ./src/usbcore.o
+                0x00000428                USB_SetupStage
  .text.USB_DataInStage
-                0x00000484       0x7c ./src/usbcore.o
-                0x00000484                USB_DataInStage
+                0x00000440       0x7c ./src/usbcore.o
+                0x00000440                USB_DataInStage
  .text.USB_DataOutStage
-                0x00000500       0x58 ./src/usbcore.o
-                0x00000500                USB_DataOutStage
+                0x000004bc       0x58 ./src/usbcore.o
+                0x000004bc                USB_DataOutStage
  .text.USB_StatusInStage
-                0x00000558       0x18 ./src/usbcore.o
-                0x00000558                USB_StatusInStage
+                0x00000514       0x18 ./src/usbcore.o
+                0x00000514                USB_StatusInStage
  .text.USB_GetDescriptor
-                0x00000570      0x1b8 ./src/usbcore.o
-                0x00000570                USB_GetDescriptor
+                0x0000052c      0x1b8 ./src/usbcore.o
+                0x0000052c                USB_GetDescriptor
  .text.USB_SetConfiguration
-                0x00000728      0x10c ./src/usbcore.o
-                0x00000728                USB_SetConfiguration
+                0x000006e4      0x10c ./src/usbcore.o
+                0x000006e4                USB_SetConfiguration
  .text.USB_EndPoint0
-                0x00000834      0x358 ./src/usbcore.o
-                0x00000834                USB_EndPoint0
+                0x000007f0      0x358 ./src/usbcore.o
+                0x000007f0                USB_EndPoint0
  .text.NVIC_EnableIRQ
-                0x00000b8c       0x38 ./src/usbhw.o
- .text.EPAdr    0x00000bc4       0x34 ./src/usbhw.o
-                0x00000bc4                EPAdr
- .text.WrCmd    0x00000bf8       0x48 ./src/usbhw.o
-                0x00000bf8                WrCmd
+                0x00000b48       0x38 ./src/usbhw.o
+ .text.EPAdr    0x00000b80       0x34 ./src/usbhw.o
+                0x00000b80                EPAdr
+ .text.WrCmd    0x00000bb4       0x48 ./src/usbhw.o
+                0x00000bb4                WrCmd
  .text.WrCmdDat
-                0x00000c40       0x7c ./src/usbhw.o
-                0x00000c40                WrCmdDat
+                0x00000bfc       0x7c ./src/usbhw.o
+                0x00000bfc                WrCmdDat
  .text.RdCmdDat
-                0x00000cbc       0x54 ./src/usbhw.o
-                0x00000cbc                RdCmdDat
+                0x00000c78       0x54 ./src/usbhw.o
+                0x00000c78                RdCmdDat
  .text.USB_Init
-                0x00000d10       0xf4 ./src/usbhw.o
-                0x00000d10                USB_Init
+                0x00000ccc       0xf4 ./src/usbhw.o
+                0x00000ccc                USB_Init
  .text.USB_Connect
-                0x00000e04       0x34 ./src/usbhw.o
-                0x00000e04                USB_Connect
+                0x00000dc0       0x34 ./src/usbhw.o
+                0x00000dc0                USB_Connect
  .text.USB_Reset
-                0x00000e38      0x180 ./src/usbhw.o
-                0x00000e38                USB_Reset
+                0x00000df4      0x180 ./src/usbhw.o
+                0x00000df4                USB_Reset
  .text.USB_Suspend
-                0x00000fb8        0xc ./src/usbhw.o
-                0x00000fb8                USB_Suspend
+                0x00000f74        0xc ./src/usbhw.o
+                0x00000f74                USB_Suspend
  .text.USB_Resume
-                0x00000fc4        0xc ./src/usbhw.o
-                0x00000fc4                USB_Resume
+                0x00000f80        0xc ./src/usbhw.o
+                0x00000f80                USB_Resume
  .text.USB_SetAddress
-                0x00000fd0       0x2c ./src/usbhw.o
-                0x00000fd0                USB_SetAddress
+                0x00000f8c       0x2c ./src/usbhw.o
+                0x00000f8c                USB_SetAddress
  .text.USB_Configure
-                0x00000ffc       0x68 ./src/usbhw.o
-                0x00000ffc                USB_Configure
+                0x00000fb8       0x68 ./src/usbhw.o
+                0x00000fb8                USB_Configure
  .text.USB_ConfigEP
-                0x00001064       0x94 ./src/usbhw.o
-                0x00001064                USB_ConfigEP
+                0x00001020       0x94 ./src/usbhw.o
+                0x00001020                USB_ConfigEP
  .text.USB_EnableEP
-                0x000010f8       0x30 ./src/usbhw.o
-                0x000010f8                USB_EnableEP
+                0x000010b4       0x30 ./src/usbhw.o
+                0x000010b4                USB_EnableEP
  .text.USB_ResetEP
-                0x00001128       0x30 ./src/usbhw.o
-                0x00001128                USB_ResetEP
+                0x000010e4       0x30 ./src/usbhw.o
+                0x000010e4                USB_ResetEP
  .text.USB_SetStallEP
-                0x00001158       0x34 ./src/usbhw.o
-                0x00001158                USB_SetStallEP
+                0x00001114       0x34 ./src/usbhw.o
+                0x00001114                USB_SetStallEP
  .text.USB_ClrStallEP
-                0x0000118c       0x30 ./src/usbhw.o
-                0x0000118c                USB_ClrStallEP
+                0x00001148       0x30 ./src/usbhw.o
+                0x00001148                USB_ClrStallEP
  .text.USB_ReadEP
-                0x000011bc       0xd0 ./src/usbhw.o
-                0x000011bc                USB_ReadEP
+                0x00001178       0xd0 ./src/usbhw.o
+                0x00001178                USB_ReadEP
  .text.USB_WriteEP
-                0x0000128c       0xac ./src/usbhw.o
-                0x0000128c                USB_WriteEP
+                0x00001248       0xac ./src/usbhw.o
+                0x00001248                USB_WriteEP
  .text.USB_IRQHandler
-                0x00001338      0x3e0 ./src/usbhw.o
-                0x00001338                USB_IRQHandler
+                0x000012f4      0x3e0 ./src/usbhw.o
+                0x000012f4                USB_IRQHandler
  .text.USB_Reset_Event
-                0x00001718        0xc ./src/usbuser.o
-                0x00001718                USB_Reset_Event
+                0x000016d4        0xc ./src/usbuser.o
+                0x000016d4                USB_Reset_Event
  .text.USB_Configure_Event
-                0x00001724       0x2c ./src/usbuser.o
-                0x00001724                USB_Configure_Event
+                0x000016e0       0x2c ./src/usbuser.o
+                0x000016e0                USB_Configure_Event
  .text.USB_EndPoint1
-                0x00001750       0x30 ./src/usbuser.o
-                0x00001750                USB_EndPoint1
+                0x0000170c       0x30 ./src/usbuser.o
+                0x0000170c                USB_EndPoint1
  .text.USB_EndPoint2
-                0x00001780       0x30 ./src/usbuser.o
-                0x00001780                USB_EndPoint2
+                0x0000173c       0x30 ./src/usbuser.o
+                0x0000173c                USB_EndPoint2
  .text.SystemInit
-                0x000017b0       0xe4 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x000017b0                SystemInit
+                0x0000176c       0xe4 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x0000176c                SystemInit
  .text.__weak_main
-                0x00001894        0x4 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
-                0x00001894                __weak_main
-                0x00001894                __main
+                0x00001850        0x4 c:/nxp/lpcxpresso_4.3.0_1023/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+                0x00001850                __weak_main
+                0x00001850                __main
  *(.rodata .rodata.*)
  .rodata.HID_ReportDescriptor
-                0x00001898       0x28 ./src/usbdesc.o
-                0x00001898                HID_ReportDescriptor
+                0x00001854       0x28 ./src/usbdesc.o
+                0x00001854                HID_ReportDescriptor
  .rodata.HID_ReportDescSize
-                0x000018c0        0x2 ./src/usbdesc.o
-                0x000018c0                HID_ReportDescSize
- *fill*         0x000018c2        0x2 00
+                0x0000187c        0x2 ./src/usbdesc.o
+                0x0000187c                HID_ReportDescSize
+ *fill*         0x0000187e        0x2 00
  .rodata.USB_DeviceDescriptor
-                0x000018c4       0x14 ./src/usbdesc.o
-                0x000018c4                USB_DeviceDescriptor
+                0x00001880       0x14 ./src/usbdesc.o
+                0x00001880                USB_DeviceDescriptor
  .rodata.USB_ConfigDescriptor
-                0x000018d8       0x24 ./src/usbdesc.o
-                0x000018d8                USB_ConfigDescriptor
+                0x00001894       0x24 ./src/usbdesc.o
+                0x00001894                USB_ConfigDescriptor
  .rodata.USB_StringDescriptor
-                0x000018fc       0x64 ./src/usbdesc.o
-                0x000018fc                USB_StringDescriptor
+                0x000018b8       0x64 ./src/usbdesc.o
+                0x000018b8                USB_StringDescriptor
  .rodata.USB_P_EP
-                0x00001960       0x40 ./src/usbuser.o
-                0x00001960                USB_P_EP
-                0x000019a0                . = ALIGN (0x4)
+                0x0000191c       0x40 ./src/usbuser.o
+                0x0000191c                USB_P_EP
+                0x0000195c                . = ALIGN (0x4)
 
-.glue_7         0x000019a0        0x0
+.glue_7         0x0000195c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x000019a0        0x0
+.glue_7t        0x0000195c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x000019a0        0x0
+.vfp11_veneer   0x0000195c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x000019a0        0x0
+.v4_bx          0x0000195c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000019a0                __exidx_start = .
+                0x0000195c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000019a0                __exidx_end = .
-                0x000019a0                _etext = .
+                0x0000195c                __exidx_end = .
+                0x0000195c                _etext = .
 
-.data_RAM2      0x2007c000        0x0 load address 0x000019a0
+.data_RAM2      0x2007c000        0x0 load address 0x0000195c
  FILL mask 0xff
  *(.data.$RAM2*)
  *(.data.$RamAHB32*)
@@ -418,7 +418,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000        0x0 load address 0x000019a0
+.data           0x10000000        0x0 load address 0x0000195c
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -426,7 +426,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _edata = .
 
-USB_RAM         0x10000000      0x220 load address 0x000019a0
+USB_RAM         0x10000000      0x220 load address 0x0000195c
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                PROVIDE (__start_USB_RAM, ABSOLUTE (.))
  USB_RAM        0x10000000      0x220 ./src/usbhw.o
@@ -498,15 +498,15 @@ OUTPUT(USB.axf elf32-littlearm)
  .debug_info    0x000027a2      0x3d5 ./src/usbuser.o
  .debug_info    0x00002b77      0x38f C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_line     0x00000000     0x2734
+.debug_line     0x00000000     0x272f
  .debug_line    0x00000000      0x405 ./src/cr_startup_lpc176x.o
  .debug_line    0x00000405      0x440 ./src/hiduser.o
- .debug_line    0x00000845      0x4a6 ./src/main.o
- .debug_line    0x00000ceb      0x552 ./src/usbcore.o
- .debug_line    0x0000123d      0x3ae ./src/usbdesc.o
- .debug_line    0x000015eb      0x828 ./src/usbhw.o
- .debug_line    0x00001e13      0x549 ./src/usbuser.o
- .debug_line    0x0000235c      0x3d8 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x00000845      0x4a1 ./src/main.o
+ .debug_line    0x00000ce6      0x552 ./src/usbcore.o
+ .debug_line    0x00001238      0x3ae ./src/usbdesc.o
+ .debug_line    0x000015e6      0x828 ./src/usbhw.o
+ .debug_line    0x00001e0e      0x549 ./src/usbuser.o
+ .debug_line    0x00002357      0x3d8 C:\Users\Joaquin\Documents\Joaquin\Facu\Materias\Sistemas Embebidos\Proyecto\Repositorio\WSN-LSE\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
 .debug_macinfo  0x00000000    0x38874
  .debug_macinfo

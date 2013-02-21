@@ -96,7 +96,7 @@ int main (void)
 #endif
 
 
-#if (ADDR_LOCAL == 2)
+#if (ADDR_LOCAL == 1)
 	// Si es el primer nodo, seteo el timer que sincroniza red
 	TIM_TIMERCFG_Type TIM_ConfigStruct;
 	TIM_MATCHCFG_Type TIM_MatchConfigStruct;
@@ -173,22 +173,18 @@ void GetInReport (void) {
 
 	// Si está habilitado el envio, se envia alternadamente PosX y PosY
 	if (enviando){
-		if(numero_mje)
-		{
-			InReport[0] = POS_Y;
-			memcpy(InReport+1,&posicion_y,sizeof(float32_t));
-			numero_mje = 0;
+
+		if (enviando){
+
+			memcpy(InReport,&posicion_x,sizeof(float32_t));
+			memcpy(InReport+sizeof(float32_t),&posicion_y,sizeof(float32_t));
 		}
 		else
-		{
-			InReport[0] = POS_X;
-			memcpy(InReport+1,&posicion_x,sizeof(float32_t));
-			numero_mje = 1;
-		}
+			for(i=0;i<8;i++) InReport[i] = 0x00;
 
 	}
 	else
-		for(i=0;i<33;i++) InReport[i] = 0x00;
+		for(i=0;i<8;i++) InReport[i] = 0x00;
 }
 
 // Funcion que recibe report del host (para iniciar transferencia)

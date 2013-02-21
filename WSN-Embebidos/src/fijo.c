@@ -69,8 +69,9 @@ void rutina_fijo (void)
 					for(aux=0;aux<10000;aux++);
 					GPIO_ClearValue(LED_PORT,LED_BIT);
 				}
-				else if (d_rx.src.shortAddr.addr == ADDR_LOCAL +1 )
+				/*else if (d_rx.src.shortAddr.addr == ADDR_LOCAL +1 )
 				{
+
 					// Verifico si es mensaje de retorno
 					if (d_rx.pl_length > 2)
 					{
@@ -96,7 +97,7 @@ void rutina_fijo (void)
 							reg_nodos[addr_aux - 10] = d_rx.payload[2];
 						}
 					}
-				}
+				}*/
 				else if (d_rx.src.shortAddr.addr >=10 )
 				{
 					/*
